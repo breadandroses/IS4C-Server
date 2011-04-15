@@ -1,0 +1,739 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0047)http://localhost/time/index.php?date=1283313600 -->
+<HTML><HEAD><META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+       <LINK rel="stylesheet" type="text/css" href="./index.php_files/calendar.css">
+       <LINK rel="stylesheet" type="text/css" href="./index.php_files/jquery.autocomplete.css">
+       <SCRIPT type="text/javascript" src="./index.php_files/calendar.js"></SCRIPT>
+       <SCRIPT type="text/javascript" src="./index.php_files/jquery-1.4.2.min.js"></SCRIPT>
+       <SCRIPT type="text/javascript" src="./index.php_files/jquery.autocomplete.min.js"></SCRIPT>
+    </HEAD><BODY>
+                <TABLE class="calendar">
+            <TBODY><TR class="calendar_head">
+                <TH class="arrow">
+                    <A href="http://localhost/time/index.php?date=1280635200">&lt;-</A>
+                </TH>
+                <TH colspan="5">
+                    September 2010                </TH>
+                <TH class="arrow">
+                    <A href="http://localhost/time/index.php?date=1285905600">-&gt;</A>
+                </TH>
+            </TR>
+            <TR class="days">
+                <TD>Su</TD><TD>Mo</TD><TD>Tu</TD><TD>We</TD><TD>Th</TD><TD>Fr</TD><TD>Sa</TD></TR>
+            <TR>
+        <TD>&nbsp;</TD><TD>&nbsp;</TD><TD>&nbsp;</TD><TD onclick="show_shifts(20100901);">1</TD><TD onclick="show_shifts(20100902);">2</TD><TD onclick="show_shifts(20100903);">3</TD><TD onclick="show_shifts(20100904);">4</TD></TR><TR><TD onclick="show_shifts(20100905);">5</TD><TD onclick="show_shifts(20100906);">6</TD><TD onclick="show_shifts(20100907);">7</TD><TD onclick="show_shifts(20100908);">8</TD><TD onclick="show_shifts(20100909);">9</TD><TD onclick="show_shifts(20100910);">10</TD><TD onclick="show_shifts(20100911);">11</TD></TR><TR><TD onclick="show_shifts(20100912);">12</TD><TD onclick="show_shifts(20100913);">13</TD><TD onclick="show_shifts(20100914);">14</TD><TD onclick="show_shifts(20100915);">15</TD><TD onclick="show_shifts(20100916);">16</TD><TD onclick="show_shifts(20100917);">17</TD><TD onclick="show_shifts(20100918);">18</TD></TR><TR><TD onclick="show_shifts(20100919);">19</TD><TD onclick="show_shifts(20100920);">20</TD><TD onclick="show_shifts(20100921);">21</TD><TD onclick="show_shifts(20100922);">22</TD><TD onclick="show_shifts(20100923);">23</TD><TD onclick="show_shifts(20100924);">24</TD><TD onclick="show_shifts(20100925);">25</TD></TR><TR><TD onclick="show_shifts(20100926);">26</TD><TD onclick="show_shifts(20100927);">27</TD><TD onclick="show_shifts(20100928);">28</TD><TD onclick="show_shifts(20100929);">29</TD><TD onclick="show_shifts(20100930);">30</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>    </TBODY></TABLE>
+    <BR>
+    <DIV id="shifts">
+<P>Shifts for 09/30/2010: </P>
+<TABLE border="1">
+    <TBODY><TR>
+        <TD>Shift #</TD>
+        <TD>Time</TD>
+        <TD>Assigned</TD>
+    </TR>
+        <TR>
+            <TD>1</TD>
+            <TD>12:00 pm - 03:00 pm</TD>
+            <TD>
+                    <FORM id="employee_160">
+                    <SELECT>
+                            <OPTION value="57">Saad Abbasi</OPTION>
+                                    <OPTION value="235">Corey Aguilar</OPTION>
+                                    <OPTION value="128">Austin Alexander</OPTION>
+                                    <OPTION value="69">Kaitlin Alexander</OPTION>
+                                    <OPTION value="24">Lilly Anderson-Messec</OPTION>
+                                    <OPTION value="161">Daniel Ansted</OPTION>
+                                    <OPTION value="15">Logan Ashmore</OPTION>
+                                    <OPTION value="169">Lana Austin</OPTION>
+                                    <OPTION value="256">Carrie Ann Baade</OPTION>
+                                    <OPTION value="196">Mandy Bailey</OPTION>
+                                    <OPTION value="176">Nelson Ball</OPTION>
+                                    <OPTION value="195">Cyrus Banisi</OPTION>
+                                    <OPTION value="143">Cetta Barnhart</OPTION>
+                                    <OPTION value="217">Brittany Barrett</OPTION>
+                                    <OPTION value="131">Laurakate Barrett</OPTION>
+                                    <OPTION value="234">Pete Barth</OPTION>
+                                    <OPTION value="62">Jeff Bastian</OPTION>
+                                    <OPTION value="167">Jack David Baucum</OPTION>
+                                    <OPTION value="102">Shawn Bayern</OPTION>
+                                    <OPTION value="181">Catherine Berendsohn</OPTION>
+                                    <OPTION value="198">Ryan Birol</OPTION>
+                                    <OPTION value="172">Amanda Boekhut</OPTION>
+                                    <OPTION value="236">John Bond</OPTION>
+                                    <OPTION value="170">Austin Boyle</OPTION>
+                                    <OPTION value="258">Zachary Braun</OPTION>
+                                    <OPTION value="75">Gracie Brenner</OPTION>
+                                    <OPTION value="240">Lee Bretschneider</OPTION>
+                                    <OPTION value="249">Keith Brinkmann</OPTION>
+                                    <OPTION value="67">Quartney Brownfield</OPTION>
+                                    <OPTION value="7">Adam Bunn</OPTION>
+                                    <OPTION value="205">Christopher Byrd</OPTION>
+                                    <OPTION value="2">Ryler Calabrese</OPTION>
+                                    <OPTION value="162">Mary Ann Callis</OPTION>
+                                    <OPTION value="47">Chris Cameron</OPTION>
+                                    <OPTION value="142">Christen Cannon</OPTION>
+                                    <OPTION value="211">Rafael Canuto</OPTION>
+                                    <OPTION value="185">Courtney Carson</OPTION>
+                                    <OPTION value="58">Robert Carter</OPTION>
+                                    <OPTION value="116">Derk Cerretani</OPTION>
+                                    <OPTION value="23">Teri Choulat</OPTION>
+                                    <OPTION value="89">Stephanie Christiano</OPTION>
+                                    <OPTION value="247">Dustin Clark</OPTION>
+                                    <OPTION value="81">Lisa Conn</OPTION>
+                                    <OPTION value="138">Daniel Connors</OPTION>
+                                    <OPTION value="139">Olga Connors</OPTION>
+                                    <OPTION value="189">Kevin Cooper</OPTION>
+                                    <OPTION value="129">Christie Craft</OPTION>
+                                    <OPTION value="82">Sarah Culbreth</OPTION>
+                                    <OPTION value="6">Ashley Daily</OPTION>
+                                    <OPTION value="85">Rachel Davenport</OPTION>
+                                    <OPTION value="130">Natalie Davidson</OPTION>
+                                    <OPTION value="96">William H(Bill) Davis</OPTION>
+                                    <OPTION value="255">Cody Diefenthaler</OPTION>
+                                    <OPTION value="174">Patricia Diehl</OPTION>
+                                    <OPTION value="39">Kat Diersen</OPTION>
+                                    <OPTION value="87">Cory Driscoll</OPTION>
+                                    <OPTION value="50">Andrew Drew Duncan</OPTION>
+                                    <OPTION value="33">Caitlin Dunn</OPTION>
+                                    <OPTION value="200">Brittany Ellis</OPTION>
+                                    <OPTION value="151">Ron Erictson</OPTION>
+                                    <OPTION value="221">Judy Felder</OPTION>
+                                    <OPTION value="25">Alisha Feldman</OPTION>
+                                    <OPTION value="110">Mary Fermandez</OPTION>
+                                    <OPTION value="3">Meagan Ferris</OPTION>
+                                    <OPTION value="115">Noah Flegeal</OPTION>
+                                    <OPTION value="40">Chelsea Fox</OPTION>
+                                    <OPTION value="38">Shaleiah Fox</OPTION>
+                                    <OPTION value="150">Van Fox</OPTION>
+                                    <OPTION value="46">Arnold Francisco</OPTION>
+                                    <OPTION value="148">Marsha Fridie</OPTION>
+                                    <OPTION value="193">Washington Gallon</OPTION>
+                                    <OPTION value="220">Gabriella Garaffa</OPTION>
+                                    <OPTION value="208">Jennifer Garber</OPTION>
+                                    <OPTION value="121">Patricia Gay</OPTION>
+                                    <OPTION value="125">Vince George</OPTION>
+                                    <OPTION value="215">Wesley Gibson</OPTION>
+                                    <OPTION value="202">Elise Gornish</OPTION>
+                                    <OPTION value="226">Tyler Green</OPTION>
+                                    <OPTION value="5">Heather Griffis</OPTION>
+                                    <OPTION value="180">Yvonne Gsteiger</OPTION>
+                                    <OPTION value="12">Jimmy Gunderson</OPTION>
+                                    <OPTION value="252">Jessi Hamilton</OPTION>
+                                    <OPTION value="135">Lindsay Hamman</OPTION>
+                                    <OPTION value="9">Erin Hammes</OPTION>
+                                    <OPTION value="83">Sue Hansen</OPTION>
+                                    <OPTION value="160">Ann Harper</OPTION>
+                                    <OPTION value="79">Katie Harris</OPTION>
+                                    <OPTION value="113">Keeffee Haynes</OPTION>
+                                    <OPTION value="186">Porsche Haynes</OPTION>
+                                    <OPTION value="253">Michelle Heaton</OPTION>
+                                    <OPTION value="18">Evan Heiser</OPTION>
+                                    <OPTION value="248">Kaitlyn Hicks</OPTION>
+                                    <OPTION value="164">Philip Hiss</OPTION>
+                                    <OPTION value="104">Bennett Hoffman</OPTION>
+                                    <OPTION value="91">Megan Holmes</OPTION>
+                                    <OPTION value="140">Elizabeth Hubbard</OPTION>
+                                    <OPTION value="141">Raymond Hubbard</OPTION>
+                                    <OPTION value="201">Kyle Jackson</OPTION>
+                                    <OPTION value="153">Jamie Kaufmann</OPTION>
+                                    <OPTION value="42">Rachel Kaufmann</OPTION>
+                                    <OPTION value="123">Ouikut Kaye</OPTION>
+                                    <OPTION value="156">Caroline Keegan</OPTION>
+                                    <OPTION value="93">Peter Kelly</OPTION>
+                                    <OPTION value="86">Sam Kelly</OPTION>
+                                    <OPTION value="149">Kyle Key</OPTION>
+                                    <OPTION value="13">Jessie King</OPTION>
+                                    <OPTION value="99">E'Layne Koenigsberg</OPTION>
+                                    <OPTION value="34">Matthew Kopka</OPTION>
+                                    <OPTION value="80">Danielle Krasnigi</OPTION>
+                                    <OPTION value="84">Karson Kutz</OPTION>
+                                    <OPTION value="63">Marion Lasley</OPTION>
+                                    <OPTION value="237">Emily Lee</OPTION>
+                                    <OPTION value="21">Taylor Lee</OPTION>
+                                    <OPTION value="66">Juliet Lewis</OPTION>
+                                    <OPTION value="119">M.W. Bear Lewis</OPTION>
+                                    <OPTION value="118">Mary Lewis</OPTION>
+                                    <OPTION value="179">Greg Linne</OPTION>
+                                    <OPTION value="124">Eric Lippe</OPTION>
+                                    <OPTION value="210">Andrew Livingston</OPTION>
+                                    <OPTION value="239">Rachel Lovins</OPTION>
+                                    <OPTION value="225">Bo Marcevski</OPTION>
+                                    <OPTION value="136">Rick Martin</OPTION>
+                                    <OPTION value="257">James McClean</OPTION>
+                                    <OPTION value="48">Travis McDevitt-Galles</OPTION>
+                                    <OPTION value="233">Jeff Mckenzie</OPTION>
+                                    <OPTION value="228">Renzo Medroa</OPTION>
+                                    <OPTION value="229">Drew Melville</OPTION>
+                                    <OPTION value="122">Gina Menduni</OPTION>
+                                    <OPTION value="188">Christy Merritt</OPTION>
+                                    <OPTION value="245">Frankie Messier</OPTION>
+                                    <OPTION value="197">Jessa Messina</OPTION>
+                                    <OPTION value="147">Byron Miller</OPTION>
+                                    <OPTION value="223">Hannah Mills</OPTION>
+                                    <OPTION value="190">John Mola</OPTION>
+                                    <OPTION value="227">Rebecca Morris</OPTION>
+                                    <OPTION value="11">Anna Morrow</OPTION>
+                                    <OPTION value="157">Luke Moses</OPTION>
+                                    <OPTION value="92">Martha Murray</OPTION>
+                                    <OPTION value="241">Jenna Nelson</OPTION>
+                                    <OPTION value="10">Michael Nesius</OPTION>
+                                    <OPTION value="168">Kim Newman</OPTION>
+                                    <OPTION value="126">Dana Newsome</OPTION>
+                                    <OPTION value="134">Stephen Nicholson</OPTION>
+                                    <OPTION value="36">Sheri Nilles</OPTION>
+                                    <OPTION value="177">Claire Nombret</OPTION>
+                                    <OPTION value="222">Karla O'dell</OPTION>
+                                    <OPTION value="218">Jess Ortega</OPTION>
+                                    <OPTION value="31">Luis Ortiz</OPTION>
+                                    <OPTION value="158">Tom Papp</OPTION>
+                                    <OPTION value="214">Judson Parker</OPTION>
+                                    <OPTION value="250">Eric Pate</OPTION>
+                                    <OPTION value="145">JoEllen Pederson</OPTION>
+                                    <OPTION value="55">Sarah Penello</OPTION>
+                                    <OPTION value="243">Capehart Perkins</OPTION>
+                                    <OPTION value="216">Cara Peterson</OPTION>
+                                    <OPTION value="206">Derek Phillips</OPTION>
+                                    <OPTION value="213">David Pickel</OPTION>
+                                    <OPTION value="133">Lisa Play</OPTION>
+                                    <OPTION value="8">Justin Pogge</OPTION>
+                                    <OPTION value="230">Samantha Polk</OPTION>
+                                    <OPTION value="159">Kai Porter</OPTION>
+                                    <OPTION value="144">Janet Pushkal</OPTION>
+                                    <OPTION value="203">Mando Ramos</OPTION>
+                                    <OPTION value="1">Adam Reid</OPTION>
+                                    <OPTION value="242">Billy Reilova</OPTION>
+                                    <OPTION value="45">bill rice</OPTION>
+                                    <OPTION value="238">Larry Rice</OPTION>
+                                    <OPTION value="212">Rosie Richeson</OPTION>
+                                    <OPTION value="194">Jordan Rockwell</OPTION>
+                                    <OPTION value="49">Clayton Rychlik</OPTION>
+                                    <OPTION value="191">Alyssa Sanger</OPTION>
+                                    <OPTION value="184">Mia Sartschev</OPTION>
+                                    <OPTION value="173">Nick Savelli</OPTION>
+                                    <OPTION value="199">Megan Scherwitzki</OPTION>
+                                    <OPTION value="4">Dan Schmahl</OPTION>
+                                    <OPTION value="111">Jesse Schofield</OPTION>
+                                    <OPTION value="259">Caitlin Scott</OPTION>
+                                    <OPTION value="178">Colleen Seeber</OPTION>
+                                    <OPTION value="231">Holly Sewall</OPTION>
+                                    <OPTION value="127">Patricia Shepherd</OPTION>
+                                    <OPTION value="183">John Sheridan</OPTION>
+                                    <OPTION value="137">Jack Simmons</OPTION>
+                                    <OPTION value="43">Troy Simon</OPTION>
+                                    <OPTION value="132">Jennifer Sisoian</OPTION>
+                                    <OPTION value="219">Norma Skaggs</OPTION>
+                                    <OPTION value="254">Andrew Smith</OPTION>
+                                    <OPTION value="182">Jordan Smith</OPTION>
+                                    <OPTION value="246">Edward Sobolewski</OPTION>
+                                    <OPTION value="112">Ned Speirs</OPTION>
+                                    <OPTION value="117">Kathleen Stanton</OPTION>
+                                    <OPTION value="232">Shelby Stec</OPTION>
+                                    <OPTION value="53">Janice Stephens</OPTION>
+                                    <OPTION value="146">Nathan Stoltzfus</OPTION>
+                                    <OPTION value="78">Aaron Suko</OPTION>
+                                    <OPTION value="35">Ryan 'Sully' Sullivan</OPTION>
+                                    <OPTION value="163">Jennifer Swift</OPTION>
+                                    <OPTION value="244">Amanda Taylor</OPTION>
+                                    <OPTION value="52">Tulie Taylor</OPTION>
+                                    <OPTION value="154">Amanda Timm</OPTION>
+                                    <OPTION value="175">Jake Tobin</OPTION>
+                                    <OPTION value="56">Joselle Torres</OPTION>
+                                    <OPTION value="209">Wallace Tyson</OPTION>
+                                    <OPTION value="120">Sarah Keith Valentine</OPTION>
+                                    <OPTION value="166">Kurt Valle</OPTION>
+                                    <OPTION value="224">Pina Valle</OPTION>
+                                    <OPTION value="204">Robert Visk</OPTION>
+                                    <OPTION value="101">Julie Walker</OPTION>
+                                    <OPTION value="17">Rachel Walsh</OPTION>
+                                    <OPTION value="171">Candace Ward</OPTION>
+                                    <OPTION value="72">Matthew Warner</OPTION>
+                                    <OPTION value="207">Tazara Weilhammer</OPTION>
+                                    <OPTION value="192">Sydney Weinberg</OPTION>
+                                    <OPTION value="187">Gregory Wilson</OPTION>
+                                    <OPTION value="155">Danny Wood</OPTION>
+                                    <OPTION value="251">Sheeva Yazdani</OPTION>
+                                    <OPTION value="152">Taylor Young</OPTION>
+                                    <OPTION value="107">Nick Zatkovich</OPTION>
+                                </SELECT>
+                    <A onclick="add_employee_to_shift($(&#39;#employee_160 select&#39;).val(), 160); show_shifts(20100930); return false;" href="http://localhost/time/index.php?date=1283313600#">+</A>
+                </FORM>
+            </TD>
+            <TD><INPUT type="submit" value="-" onclick="delete_shift(160, 20100930); show_shifts(20100930); return false;"></TD>
+        </TR>
+            <TR>
+            <TD>2</TD>
+            <TD>03:00 pm - 06:00 pm</TD>
+            <TD>
+                    <INPUT type="checkbox" name="worked" id="worked_191_161" onclick="shift_worked(191, 161, $(&#39;#worked_191_161&#39;).attr(&#39;checked&#39;));"> Alyssa Sanger <A onclick="remove_employee_from_shift(191, 161); show_shifts(20100930); return false;" href="http://localhost/time/index.php?date=1283313600#" style="float: right">-</A> <BR>
+                <!--<input type="text" class="worked_text_field"/>-->
+                            <FORM id="employee_161">
+                    <SELECT>
+                            <OPTION value="57">Saad Abbasi</OPTION>
+                                    <OPTION value="235">Corey Aguilar</OPTION>
+                                    <OPTION value="128">Austin Alexander</OPTION>
+                                    <OPTION value="69">Kaitlin Alexander</OPTION>
+                                    <OPTION value="24">Lilly Anderson-Messec</OPTION>
+                                    <OPTION value="161">Daniel Ansted</OPTION>
+                                    <OPTION value="15">Logan Ashmore</OPTION>
+                                    <OPTION value="169">Lana Austin</OPTION>
+                                    <OPTION value="256">Carrie Ann Baade</OPTION>
+                                    <OPTION value="196">Mandy Bailey</OPTION>
+                                    <OPTION value="176">Nelson Ball</OPTION>
+                                    <OPTION value="195">Cyrus Banisi</OPTION>
+                                    <OPTION value="143">Cetta Barnhart</OPTION>
+                                    <OPTION value="217">Brittany Barrett</OPTION>
+                                    <OPTION value="131">Laurakate Barrett</OPTION>
+                                    <OPTION value="234">Pete Barth</OPTION>
+                                    <OPTION value="62">Jeff Bastian</OPTION>
+                                    <OPTION value="167">Jack David Baucum</OPTION>
+                                    <OPTION value="102">Shawn Bayern</OPTION>
+                                    <OPTION value="181">Catherine Berendsohn</OPTION>
+                                    <OPTION value="198">Ryan Birol</OPTION>
+                                    <OPTION value="172">Amanda Boekhut</OPTION>
+                                    <OPTION value="236">John Bond</OPTION>
+                                    <OPTION value="170">Austin Boyle</OPTION>
+                                    <OPTION value="258">Zachary Braun</OPTION>
+                                    <OPTION value="75">Gracie Brenner</OPTION>
+                                    <OPTION value="240">Lee Bretschneider</OPTION>
+                                    <OPTION value="249">Keith Brinkmann</OPTION>
+                                    <OPTION value="67">Quartney Brownfield</OPTION>
+                                    <OPTION value="7">Adam Bunn</OPTION>
+                                    <OPTION value="205">Christopher Byrd</OPTION>
+                                    <OPTION value="2">Ryler Calabrese</OPTION>
+                                    <OPTION value="162">Mary Ann Callis</OPTION>
+                                    <OPTION value="47">Chris Cameron</OPTION>
+                                    <OPTION value="142">Christen Cannon</OPTION>
+                                    <OPTION value="211">Rafael Canuto</OPTION>
+                                    <OPTION value="185">Courtney Carson</OPTION>
+                                    <OPTION value="58">Robert Carter</OPTION>
+                                    <OPTION value="116">Derk Cerretani</OPTION>
+                                    <OPTION value="23">Teri Choulat</OPTION>
+                                    <OPTION value="89">Stephanie Christiano</OPTION>
+                                    <OPTION value="247">Dustin Clark</OPTION>
+                                    <OPTION value="81">Lisa Conn</OPTION>
+                                    <OPTION value="138">Daniel Connors</OPTION>
+                                    <OPTION value="139">Olga Connors</OPTION>
+                                    <OPTION value="189">Kevin Cooper</OPTION>
+                                    <OPTION value="129">Christie Craft</OPTION>
+                                    <OPTION value="82">Sarah Culbreth</OPTION>
+                                    <OPTION value="6">Ashley Daily</OPTION>
+                                    <OPTION value="85">Rachel Davenport</OPTION>
+                                    <OPTION value="130">Natalie Davidson</OPTION>
+                                    <OPTION value="96">William H(Bill) Davis</OPTION>
+                                    <OPTION value="255">Cody Diefenthaler</OPTION>
+                                    <OPTION value="174">Patricia Diehl</OPTION>
+                                    <OPTION value="39">Kat Diersen</OPTION>
+                                    <OPTION value="87">Cory Driscoll</OPTION>
+                                    <OPTION value="50">Andrew Drew Duncan</OPTION>
+                                    <OPTION value="33">Caitlin Dunn</OPTION>
+                                    <OPTION value="200">Brittany Ellis</OPTION>
+                                    <OPTION value="151">Ron Erictson</OPTION>
+                                    <OPTION value="221">Judy Felder</OPTION>
+                                    <OPTION value="25">Alisha Feldman</OPTION>
+                                    <OPTION value="110">Mary Fermandez</OPTION>
+                                    <OPTION value="3">Meagan Ferris</OPTION>
+                                    <OPTION value="115">Noah Flegeal</OPTION>
+                                    <OPTION value="40">Chelsea Fox</OPTION>
+                                    <OPTION value="38">Shaleiah Fox</OPTION>
+                                    <OPTION value="150">Van Fox</OPTION>
+                                    <OPTION value="46">Arnold Francisco</OPTION>
+                                    <OPTION value="148">Marsha Fridie</OPTION>
+                                    <OPTION value="193">Washington Gallon</OPTION>
+                                    <OPTION value="220">Gabriella Garaffa</OPTION>
+                                    <OPTION value="208">Jennifer Garber</OPTION>
+                                    <OPTION value="121">Patricia Gay</OPTION>
+                                    <OPTION value="125">Vince George</OPTION>
+                                    <OPTION value="215">Wesley Gibson</OPTION>
+                                    <OPTION value="202">Elise Gornish</OPTION>
+                                    <OPTION value="226">Tyler Green</OPTION>
+                                    <OPTION value="5">Heather Griffis</OPTION>
+                                    <OPTION value="180">Yvonne Gsteiger</OPTION>
+                                    <OPTION value="12">Jimmy Gunderson</OPTION>
+                                    <OPTION value="252">Jessi Hamilton</OPTION>
+                                    <OPTION value="135">Lindsay Hamman</OPTION>
+                                    <OPTION value="9">Erin Hammes</OPTION>
+                                    <OPTION value="83">Sue Hansen</OPTION>
+                                    <OPTION value="160">Ann Harper</OPTION>
+                                    <OPTION value="79">Katie Harris</OPTION>
+                                    <OPTION value="113">Keeffee Haynes</OPTION>
+                                    <OPTION value="186">Porsche Haynes</OPTION>
+                                    <OPTION value="253">Michelle Heaton</OPTION>
+                                    <OPTION value="18">Evan Heiser</OPTION>
+                                    <OPTION value="248">Kaitlyn Hicks</OPTION>
+                                    <OPTION value="164">Philip Hiss</OPTION>
+                                    <OPTION value="104">Bennett Hoffman</OPTION>
+                                    <OPTION value="91">Megan Holmes</OPTION>
+                                    <OPTION value="140">Elizabeth Hubbard</OPTION>
+                                    <OPTION value="141">Raymond Hubbard</OPTION>
+                                    <OPTION value="201">Kyle Jackson</OPTION>
+                                    <OPTION value="153">Jamie Kaufmann</OPTION>
+                                    <OPTION value="42">Rachel Kaufmann</OPTION>
+                                    <OPTION value="123">Ouikut Kaye</OPTION>
+                                    <OPTION value="156">Caroline Keegan</OPTION>
+                                    <OPTION value="93">Peter Kelly</OPTION>
+                                    <OPTION value="86">Sam Kelly</OPTION>
+                                    <OPTION value="149">Kyle Key</OPTION>
+                                    <OPTION value="13">Jessie King</OPTION>
+                                    <OPTION value="99">E'Layne Koenigsberg</OPTION>
+                                    <OPTION value="34">Matthew Kopka</OPTION>
+                                    <OPTION value="80">Danielle Krasnigi</OPTION>
+                                    <OPTION value="84">Karson Kutz</OPTION>
+                                    <OPTION value="63">Marion Lasley</OPTION>
+                                    <OPTION value="237">Emily Lee</OPTION>
+                                    <OPTION value="21">Taylor Lee</OPTION>
+                                    <OPTION value="66">Juliet Lewis</OPTION>
+                                    <OPTION value="119">M.W. Bear Lewis</OPTION>
+                                    <OPTION value="118">Mary Lewis</OPTION>
+                                    <OPTION value="179">Greg Linne</OPTION>
+                                    <OPTION value="124">Eric Lippe</OPTION>
+                                    <OPTION value="210">Andrew Livingston</OPTION>
+                                    <OPTION value="239">Rachel Lovins</OPTION>
+                                    <OPTION value="225">Bo Marcevski</OPTION>
+                                    <OPTION value="136">Rick Martin</OPTION>
+                                    <OPTION value="257">James McClean</OPTION>
+                                    <OPTION value="48">Travis McDevitt-Galles</OPTION>
+                                    <OPTION value="233">Jeff Mckenzie</OPTION>
+                                    <OPTION value="228">Renzo Medroa</OPTION>
+                                    <OPTION value="229">Drew Melville</OPTION>
+                                    <OPTION value="122">Gina Menduni</OPTION>
+                                    <OPTION value="188">Christy Merritt</OPTION>
+                                    <OPTION value="245">Frankie Messier</OPTION>
+                                    <OPTION value="197">Jessa Messina</OPTION>
+                                    <OPTION value="147">Byron Miller</OPTION>
+                                    <OPTION value="223">Hannah Mills</OPTION>
+                                    <OPTION value="190">John Mola</OPTION>
+                                    <OPTION value="227">Rebecca Morris</OPTION>
+                                    <OPTION value="11">Anna Morrow</OPTION>
+                                    <OPTION value="157">Luke Moses</OPTION>
+                                    <OPTION value="92">Martha Murray</OPTION>
+                                    <OPTION value="241">Jenna Nelson</OPTION>
+                                    <OPTION value="10">Michael Nesius</OPTION>
+                                    <OPTION value="168">Kim Newman</OPTION>
+                                    <OPTION value="126">Dana Newsome</OPTION>
+                                    <OPTION value="134">Stephen Nicholson</OPTION>
+                                    <OPTION value="36">Sheri Nilles</OPTION>
+                                    <OPTION value="177">Claire Nombret</OPTION>
+                                    <OPTION value="222">Karla O'dell</OPTION>
+                                    <OPTION value="218">Jess Ortega</OPTION>
+                                    <OPTION value="31">Luis Ortiz</OPTION>
+                                    <OPTION value="158">Tom Papp</OPTION>
+                                    <OPTION value="214">Judson Parker</OPTION>
+                                    <OPTION value="250">Eric Pate</OPTION>
+                                    <OPTION value="145">JoEllen Pederson</OPTION>
+                                    <OPTION value="55">Sarah Penello</OPTION>
+                                    <OPTION value="243">Capehart Perkins</OPTION>
+                                    <OPTION value="216">Cara Peterson</OPTION>
+                                    <OPTION value="206">Derek Phillips</OPTION>
+                                    <OPTION value="213">David Pickel</OPTION>
+                                    <OPTION value="133">Lisa Play</OPTION>
+                                    <OPTION value="8">Justin Pogge</OPTION>
+                                    <OPTION value="230">Samantha Polk</OPTION>
+                                    <OPTION value="159">Kai Porter</OPTION>
+                                    <OPTION value="144">Janet Pushkal</OPTION>
+                                    <OPTION value="203">Mando Ramos</OPTION>
+                                    <OPTION value="1">Adam Reid</OPTION>
+                                    <OPTION value="242">Billy Reilova</OPTION>
+                                    <OPTION value="45">bill rice</OPTION>
+                                    <OPTION value="238">Larry Rice</OPTION>
+                                    <OPTION value="212">Rosie Richeson</OPTION>
+                                    <OPTION value="194">Jordan Rockwell</OPTION>
+                                    <OPTION value="49">Clayton Rychlik</OPTION>
+                                    <OPTION value="191">Alyssa Sanger</OPTION>
+                                    <OPTION value="184">Mia Sartschev</OPTION>
+                                    <OPTION value="173">Nick Savelli</OPTION>
+                                    <OPTION value="199">Megan Scherwitzki</OPTION>
+                                    <OPTION value="4">Dan Schmahl</OPTION>
+                                    <OPTION value="111">Jesse Schofield</OPTION>
+                                    <OPTION value="259">Caitlin Scott</OPTION>
+                                    <OPTION value="178">Colleen Seeber</OPTION>
+                                    <OPTION value="231">Holly Sewall</OPTION>
+                                    <OPTION value="127">Patricia Shepherd</OPTION>
+                                    <OPTION value="183">John Sheridan</OPTION>
+                                    <OPTION value="137">Jack Simmons</OPTION>
+                                    <OPTION value="43">Troy Simon</OPTION>
+                                    <OPTION value="132">Jennifer Sisoian</OPTION>
+                                    <OPTION value="219">Norma Skaggs</OPTION>
+                                    <OPTION value="254">Andrew Smith</OPTION>
+                                    <OPTION value="182">Jordan Smith</OPTION>
+                                    <OPTION value="246">Edward Sobolewski</OPTION>
+                                    <OPTION value="112">Ned Speirs</OPTION>
+                                    <OPTION value="117">Kathleen Stanton</OPTION>
+                                    <OPTION value="232">Shelby Stec</OPTION>
+                                    <OPTION value="53">Janice Stephens</OPTION>
+                                    <OPTION value="146">Nathan Stoltzfus</OPTION>
+                                    <OPTION value="78">Aaron Suko</OPTION>
+                                    <OPTION value="35">Ryan 'Sully' Sullivan</OPTION>
+                                    <OPTION value="163">Jennifer Swift</OPTION>
+                                    <OPTION value="244">Amanda Taylor</OPTION>
+                                    <OPTION value="52">Tulie Taylor</OPTION>
+                                    <OPTION value="154">Amanda Timm</OPTION>
+                                    <OPTION value="175">Jake Tobin</OPTION>
+                                    <OPTION value="56">Joselle Torres</OPTION>
+                                    <OPTION value="209">Wallace Tyson</OPTION>
+                                    <OPTION value="120">Sarah Keith Valentine</OPTION>
+                                    <OPTION value="166">Kurt Valle</OPTION>
+                                    <OPTION value="224">Pina Valle</OPTION>
+                                    <OPTION value="204">Robert Visk</OPTION>
+                                    <OPTION value="101">Julie Walker</OPTION>
+                                    <OPTION value="17">Rachel Walsh</OPTION>
+                                    <OPTION value="171">Candace Ward</OPTION>
+                                    <OPTION value="72">Matthew Warner</OPTION>
+                                    <OPTION value="207">Tazara Weilhammer</OPTION>
+                                    <OPTION value="192">Sydney Weinberg</OPTION>
+                                    <OPTION value="187">Gregory Wilson</OPTION>
+                                    <OPTION value="155">Danny Wood</OPTION>
+                                    <OPTION value="251">Sheeva Yazdani</OPTION>
+                                    <OPTION value="152">Taylor Young</OPTION>
+                                    <OPTION value="107">Nick Zatkovich</OPTION>
+                                </SELECT>
+                    <A onclick="add_employee_to_shift($(&#39;#employee_161 select&#39;).val(), 161); show_shifts(20100930); return false;" href="http://localhost/time/index.php?date=1283313600#">+</A>
+                </FORM>
+            </TD>
+            <TD><INPUT type="submit" value="-" onclick="delete_shift(161, 20100930); show_shifts(20100930); return false;"></TD>
+        </TR>
+            <TR>
+            <TD>3</TD>
+            <TD>06:00 pm - 12:00 pm</TD>
+            <TD>
+                    <FORM id="employee_162">
+                    <SELECT>
+                            <OPTION value="57">Saad Abbasi</OPTION>
+                                    <OPTION value="235">Corey Aguilar</OPTION>
+                                    <OPTION value="128">Austin Alexander</OPTION>
+                                    <OPTION value="69">Kaitlin Alexander</OPTION>
+                                    <OPTION value="24">Lilly Anderson-Messec</OPTION>
+                                    <OPTION value="161">Daniel Ansted</OPTION>
+                                    <OPTION value="15">Logan Ashmore</OPTION>
+                                    <OPTION value="169">Lana Austin</OPTION>
+                                    <OPTION value="256">Carrie Ann Baade</OPTION>
+                                    <OPTION value="196">Mandy Bailey</OPTION>
+                                    <OPTION value="176">Nelson Ball</OPTION>
+                                    <OPTION value="195">Cyrus Banisi</OPTION>
+                                    <OPTION value="143">Cetta Barnhart</OPTION>
+                                    <OPTION value="217">Brittany Barrett</OPTION>
+                                    <OPTION value="131">Laurakate Barrett</OPTION>
+                                    <OPTION value="234">Pete Barth</OPTION>
+                                    <OPTION value="62">Jeff Bastian</OPTION>
+                                    <OPTION value="167">Jack David Baucum</OPTION>
+                                    <OPTION value="102">Shawn Bayern</OPTION>
+                                    <OPTION value="181">Catherine Berendsohn</OPTION>
+                                    <OPTION value="198">Ryan Birol</OPTION>
+                                    <OPTION value="172">Amanda Boekhut</OPTION>
+                                    <OPTION value="236">John Bond</OPTION>
+                                    <OPTION value="170">Austin Boyle</OPTION>
+                                    <OPTION value="258">Zachary Braun</OPTION>
+                                    <OPTION value="75">Gracie Brenner</OPTION>
+                                    <OPTION value="240">Lee Bretschneider</OPTION>
+                                    <OPTION value="249">Keith Brinkmann</OPTION>
+                                    <OPTION value="67">Quartney Brownfield</OPTION>
+                                    <OPTION value="7">Adam Bunn</OPTION>
+                                    <OPTION value="205">Christopher Byrd</OPTION>
+                                    <OPTION value="2">Ryler Calabrese</OPTION>
+                                    <OPTION value="162">Mary Ann Callis</OPTION>
+                                    <OPTION value="47">Chris Cameron</OPTION>
+                                    <OPTION value="142">Christen Cannon</OPTION>
+                                    <OPTION value="211">Rafael Canuto</OPTION>
+                                    <OPTION value="185">Courtney Carson</OPTION>
+                                    <OPTION value="58">Robert Carter</OPTION>
+                                    <OPTION value="116">Derk Cerretani</OPTION>
+                                    <OPTION value="23">Teri Choulat</OPTION>
+                                    <OPTION value="89">Stephanie Christiano</OPTION>
+                                    <OPTION value="247">Dustin Clark</OPTION>
+                                    <OPTION value="81">Lisa Conn</OPTION>
+                                    <OPTION value="138">Daniel Connors</OPTION>
+                                    <OPTION value="139">Olga Connors</OPTION>
+                                    <OPTION value="189">Kevin Cooper</OPTION>
+                                    <OPTION value="129">Christie Craft</OPTION>
+                                    <OPTION value="82">Sarah Culbreth</OPTION>
+                                    <OPTION value="6">Ashley Daily</OPTION>
+                                    <OPTION value="85">Rachel Davenport</OPTION>
+                                    <OPTION value="130">Natalie Davidson</OPTION>
+                                    <OPTION value="96">William H(Bill) Davis</OPTION>
+                                    <OPTION value="255">Cody Diefenthaler</OPTION>
+                                    <OPTION value="174">Patricia Diehl</OPTION>
+                                    <OPTION value="39">Kat Diersen</OPTION>
+                                    <OPTION value="87">Cory Driscoll</OPTION>
+                                    <OPTION value="50">Andrew Drew Duncan</OPTION>
+                                    <OPTION value="33">Caitlin Dunn</OPTION>
+                                    <OPTION value="200">Brittany Ellis</OPTION>
+                                    <OPTION value="151">Ron Erictson</OPTION>
+                                    <OPTION value="221">Judy Felder</OPTION>
+                                    <OPTION value="25">Alisha Feldman</OPTION>
+                                    <OPTION value="110">Mary Fermandez</OPTION>
+                                    <OPTION value="3">Meagan Ferris</OPTION>
+                                    <OPTION value="115">Noah Flegeal</OPTION>
+                                    <OPTION value="40">Chelsea Fox</OPTION>
+                                    <OPTION value="38">Shaleiah Fox</OPTION>
+                                    <OPTION value="150">Van Fox</OPTION>
+                                    <OPTION value="46">Arnold Francisco</OPTION>
+                                    <OPTION value="148">Marsha Fridie</OPTION>
+                                    <OPTION value="193">Washington Gallon</OPTION>
+                                    <OPTION value="220">Gabriella Garaffa</OPTION>
+                                    <OPTION value="208">Jennifer Garber</OPTION>
+                                    <OPTION value="121">Patricia Gay</OPTION>
+                                    <OPTION value="125">Vince George</OPTION>
+                                    <OPTION value="215">Wesley Gibson</OPTION>
+                                    <OPTION value="202">Elise Gornish</OPTION>
+                                    <OPTION value="226">Tyler Green</OPTION>
+                                    <OPTION value="5">Heather Griffis</OPTION>
+                                    <OPTION value="180">Yvonne Gsteiger</OPTION>
+                                    <OPTION value="12">Jimmy Gunderson</OPTION>
+                                    <OPTION value="252">Jessi Hamilton</OPTION>
+                                    <OPTION value="135">Lindsay Hamman</OPTION>
+                                    <OPTION value="9">Erin Hammes</OPTION>
+                                    <OPTION value="83">Sue Hansen</OPTION>
+                                    <OPTION value="160">Ann Harper</OPTION>
+                                    <OPTION value="79">Katie Harris</OPTION>
+                                    <OPTION value="113">Keeffee Haynes</OPTION>
+                                    <OPTION value="186">Porsche Haynes</OPTION>
+                                    <OPTION value="253">Michelle Heaton</OPTION>
+                                    <OPTION value="18">Evan Heiser</OPTION>
+                                    <OPTION value="248">Kaitlyn Hicks</OPTION>
+                                    <OPTION value="164">Philip Hiss</OPTION>
+                                    <OPTION value="104">Bennett Hoffman</OPTION>
+                                    <OPTION value="91">Megan Holmes</OPTION>
+                                    <OPTION value="140">Elizabeth Hubbard</OPTION>
+                                    <OPTION value="141">Raymond Hubbard</OPTION>
+                                    <OPTION value="201">Kyle Jackson</OPTION>
+                                    <OPTION value="153">Jamie Kaufmann</OPTION>
+                                    <OPTION value="42">Rachel Kaufmann</OPTION>
+                                    <OPTION value="123">Ouikut Kaye</OPTION>
+                                    <OPTION value="156">Caroline Keegan</OPTION>
+                                    <OPTION value="93">Peter Kelly</OPTION>
+                                    <OPTION value="86">Sam Kelly</OPTION>
+                                    <OPTION value="149">Kyle Key</OPTION>
+                                    <OPTION value="13">Jessie King</OPTION>
+                                    <OPTION value="99">E'Layne Koenigsberg</OPTION>
+                                    <OPTION value="34">Matthew Kopka</OPTION>
+                                    <OPTION value="80">Danielle Krasnigi</OPTION>
+                                    <OPTION value="84">Karson Kutz</OPTION>
+                                    <OPTION value="63">Marion Lasley</OPTION>
+                                    <OPTION value="237">Emily Lee</OPTION>
+                                    <OPTION value="21">Taylor Lee</OPTION>
+                                    <OPTION value="66">Juliet Lewis</OPTION>
+                                    <OPTION value="119">M.W. Bear Lewis</OPTION>
+                                    <OPTION value="118">Mary Lewis</OPTION>
+                                    <OPTION value="179">Greg Linne</OPTION>
+                                    <OPTION value="124">Eric Lippe</OPTION>
+                                    <OPTION value="210">Andrew Livingston</OPTION>
+                                    <OPTION value="239">Rachel Lovins</OPTION>
+                                    <OPTION value="225">Bo Marcevski</OPTION>
+                                    <OPTION value="136">Rick Martin</OPTION>
+                                    <OPTION value="257">James McClean</OPTION>
+                                    <OPTION value="48">Travis McDevitt-Galles</OPTION>
+                                    <OPTION value="233">Jeff Mckenzie</OPTION>
+                                    <OPTION value="228">Renzo Medroa</OPTION>
+                                    <OPTION value="229">Drew Melville</OPTION>
+                                    <OPTION value="122">Gina Menduni</OPTION>
+                                    <OPTION value="188">Christy Merritt</OPTION>
+                                    <OPTION value="245">Frankie Messier</OPTION>
+                                    <OPTION value="197">Jessa Messina</OPTION>
+                                    <OPTION value="147">Byron Miller</OPTION>
+                                    <OPTION value="223">Hannah Mills</OPTION>
+                                    <OPTION value="190">John Mola</OPTION>
+                                    <OPTION value="227">Rebecca Morris</OPTION>
+                                    <OPTION value="11">Anna Morrow</OPTION>
+                                    <OPTION value="157">Luke Moses</OPTION>
+                                    <OPTION value="92">Martha Murray</OPTION>
+                                    <OPTION value="241">Jenna Nelson</OPTION>
+                                    <OPTION value="10">Michael Nesius</OPTION>
+                                    <OPTION value="168">Kim Newman</OPTION>
+                                    <OPTION value="126">Dana Newsome</OPTION>
+                                    <OPTION value="134">Stephen Nicholson</OPTION>
+                                    <OPTION value="36">Sheri Nilles</OPTION>
+                                    <OPTION value="177">Claire Nombret</OPTION>
+                                    <OPTION value="222">Karla O'dell</OPTION>
+                                    <OPTION value="218">Jess Ortega</OPTION>
+                                    <OPTION value="31">Luis Ortiz</OPTION>
+                                    <OPTION value="158">Tom Papp</OPTION>
+                                    <OPTION value="214">Judson Parker</OPTION>
+                                    <OPTION value="250">Eric Pate</OPTION>
+                                    <OPTION value="145">JoEllen Pederson</OPTION>
+                                    <OPTION value="55">Sarah Penello</OPTION>
+                                    <OPTION value="243">Capehart Perkins</OPTION>
+                                    <OPTION value="216">Cara Peterson</OPTION>
+                                    <OPTION value="206">Derek Phillips</OPTION>
+                                    <OPTION value="213">David Pickel</OPTION>
+                                    <OPTION value="133">Lisa Play</OPTION>
+                                    <OPTION value="8">Justin Pogge</OPTION>
+                                    <OPTION value="230">Samantha Polk</OPTION>
+                                    <OPTION value="159">Kai Porter</OPTION>
+                                    <OPTION value="144">Janet Pushkal</OPTION>
+                                    <OPTION value="203">Mando Ramos</OPTION>
+                                    <OPTION value="1">Adam Reid</OPTION>
+                                    <OPTION value="242">Billy Reilova</OPTION>
+                                    <OPTION value="45">bill rice</OPTION>
+                                    <OPTION value="238">Larry Rice</OPTION>
+                                    <OPTION value="212">Rosie Richeson</OPTION>
+                                    <OPTION value="194">Jordan Rockwell</OPTION>
+                                    <OPTION value="49">Clayton Rychlik</OPTION>
+                                    <OPTION value="191">Alyssa Sanger</OPTION>
+                                    <OPTION value="184">Mia Sartschev</OPTION>
+                                    <OPTION value="173">Nick Savelli</OPTION>
+                                    <OPTION value="199">Megan Scherwitzki</OPTION>
+                                    <OPTION value="4">Dan Schmahl</OPTION>
+                                    <OPTION value="111">Jesse Schofield</OPTION>
+                                    <OPTION value="259">Caitlin Scott</OPTION>
+                                    <OPTION value="178">Colleen Seeber</OPTION>
+                                    <OPTION value="231">Holly Sewall</OPTION>
+                                    <OPTION value="127">Patricia Shepherd</OPTION>
+                                    <OPTION value="183">John Sheridan</OPTION>
+                                    <OPTION value="137">Jack Simmons</OPTION>
+                                    <OPTION value="43">Troy Simon</OPTION>
+                                    <OPTION value="132">Jennifer Sisoian</OPTION>
+                                    <OPTION value="219">Norma Skaggs</OPTION>
+                                    <OPTION value="254">Andrew Smith</OPTION>
+                                    <OPTION value="182">Jordan Smith</OPTION>
+                                    <OPTION value="246">Edward Sobolewski</OPTION>
+                                    <OPTION value="112">Ned Speirs</OPTION>
+                                    <OPTION value="117">Kathleen Stanton</OPTION>
+                                    <OPTION value="232">Shelby Stec</OPTION>
+                                    <OPTION value="53">Janice Stephens</OPTION>
+                                    <OPTION value="146">Nathan Stoltzfus</OPTION>
+                                    <OPTION value="78">Aaron Suko</OPTION>
+                                    <OPTION value="35">Ryan 'Sully' Sullivan</OPTION>
+                                    <OPTION value="163">Jennifer Swift</OPTION>
+                                    <OPTION value="244">Amanda Taylor</OPTION>
+                                    <OPTION value="52">Tulie Taylor</OPTION>
+                                    <OPTION value="154">Amanda Timm</OPTION>
+                                    <OPTION value="175">Jake Tobin</OPTION>
+                                    <OPTION value="56">Joselle Torres</OPTION>
+                                    <OPTION value="209">Wallace Tyson</OPTION>
+                                    <OPTION value="120">Sarah Keith Valentine</OPTION>
+                                    <OPTION value="166">Kurt Valle</OPTION>
+                                    <OPTION value="224">Pina Valle</OPTION>
+                                    <OPTION value="204">Robert Visk</OPTION>
+                                    <OPTION value="101">Julie Walker</OPTION>
+                                    <OPTION value="17">Rachel Walsh</OPTION>
+                                    <OPTION value="171">Candace Ward</OPTION>
+                                    <OPTION value="72">Matthew Warner</OPTION>
+                                    <OPTION value="207">Tazara Weilhammer</OPTION>
+                                    <OPTION value="192">Sydney Weinberg</OPTION>
+                                    <OPTION value="187">Gregory Wilson</OPTION>
+                                    <OPTION value="155">Danny Wood</OPTION>
+                                    <OPTION value="251">Sheeva Yazdani</OPTION>
+                                    <OPTION value="152">Taylor Young</OPTION>
+                                    <OPTION value="107">Nick Zatkovich</OPTION>
+                                </SELECT>
+                    <A onclick="add_employee_to_shift($(&#39;#employee_162 select&#39;).val(), 162); show_shifts(20100930); return false;" href="http://localhost/time/index.php?date=1283313600#">+</A>
+                </FORM>
+            </TD>
+            <TD><INPUT type="submit" value="-" onclick="delete_shift(162, 20100930); show_shifts(20100930); return false;"></TD>
+        </TR>
+        <TR>
+        <FORM id="add_shift"></FORM>
+            <TD>4</TD>
+            <TD><INPUT id="start_time" type="time" placeholder="12:00 am" size="6"> - <INPUT id="end_time" type="time" placeholder="11:59 pm" size="6"></TD>
+            <TD>
+            <TD><INPUT type="submit" value="+" onclick="add_shift($(&#39;#start_time&#39;).val(), $(&#39;#end_time&#39;).val(), 20100930); show_shifts(20100930); return false;"></TD>
+        
+    </TR><TR>
+    </TR>
+</TBODY></TABLE>
+<DIV id="empty"></DIV>
+</DIV>
+
+    
+
+
+</BODY></HTML>
