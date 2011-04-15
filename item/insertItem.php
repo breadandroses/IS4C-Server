@@ -82,6 +82,10 @@ if (!$price)
 	$price = 0;
 }
 
+if (!$vendorPrice)
+{
+	$vendorPrice = 0;
+}
 $query99 =
 "
 INSERT INTO products
