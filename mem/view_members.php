@@ -67,6 +67,7 @@ $link2 = "{$_SERVER['PHP_SELF']}?sort=fna";
 $link3 = "{$_SERVER['PHP_SELF']}?sort=cna";
 $link4 = "{$_SERVER['PHP_SELF']}?sort=pna";
 $link5 = "{$_SERVER['PHP_SELF']}?sort=ema";
+$link6 = "{$_SERVER['PHP_SELF']}?sort=sta";
 
 // Determine the sorting order.
 if (isset($_GET['sort'])) { // If a non-default sort has been chosen.
@@ -140,7 +141,7 @@ if (isset($_GET['sort'])) { // If a non-default sort has been chosen.
 		
 
 // Make the query using the LIMIT function and the $start information.
-$query = "SELECT LastName, FirstName, CardNo, id, phoneNo, email FROM custdata WHERE CardNo != 9999 AND CardNo != 99999 ORDER BY $order_by LIMIT $start, $display";
+$query = "SELECT LastName, FirstName, CardNo, id, phoneNo, email, memDesc FROM custdata JOIN memtype USING (memType) WHERE CardNo != 9999 AND CardNo != 99999 ORDER BY $order_by LIMIT $start, $display";
 
 $result = @mysql_query ($query);
 
@@ -150,12 +151,13 @@ echo "<p>There are currently $num_records members.</p>\n";
 // Table header.
 echo '<table align="center" width="90%" cellspacing="0" cellpadding="5">
 <tr>
-<td align="center"><b>Edit</b></td>
-<td align="center"><b><a href="' . $link1 . '&s=' . $start . '&np=' . $num_pages . '">Last Name</a></b></td>
-<td align="center"><b><a href="' . $link2 . '&s=' . $start . '&np=' . $num_pages . '">First Name</a></b></td>
-<td align="center"><b><a href="' . $link3 . '&s=' . $start . '&np=' . $num_pages . '">Member Number</a></b></td>
-<td align="center"><b><a href="' . $link4 . '&s=' . $start . '&np=' . $num_pages . '">Phone Number</a></b></td>
-<td align="center"><b><a href="' . $link5 . '&s=' . $start . '&np=' . $num_pages . '">E-mail Address</a></b></td>
+	<td align="center"><b>Edit</b></td>
+	<td align="center"><b><a href="' . $link1 . '&s=' . $start . '&np=' . $num_pages . '">Last Name</a></b></td>
+	<td align="center"><b><a href="' . $link2 . '&s=' . $start . '&np=' . $num_pages . '">First Name</a></b></td>
+	<td align="center"><b><a href="' . $link3 . '&s=' . $start . '&np=' . $num_pages . '">Member Number</a></b></td>
+	<td align="center"><b><a href="' . $link4 . '&s=' . $start . '&np=' . $num_pages . '">Phone Number</a></b></td>
+	<td align="center"><b><a href="' . $link5 . '&s=' . $start . '&np=' . $num_pages . '">E-mail Address</a></b></td>
+	<td align="center"><b><a href="' . $link6 . '&s=' . $start . '&n[=' . $num_pages . '">Status</a></b></td>
 </tr>';
 
 // Fetch and print all the records.
@@ -169,6 +171,7 @@ while ($row = mysql_fetch_array ($result, MYSQL_ASSOC)) {
 	<td align="center"><a href="auto_mem_modify.php?cardno=' . $row['CardNo'] . '">' . $row['CardNo'] . ' </a></td>
 	<td align="center">' . $row['phoneNo'] . '</td>
     <td align="center">' . $row['email'] . '</td>
+        <td align="center">' . $row['memDesc'] . '</td>
 	</tr>';
 }
 
