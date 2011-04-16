@@ -124,6 +124,11 @@ if (isset($_GET['sort'])) { // If a non-default sort has been chosen.
 		$order_by = 'email DESC';
 		$link5 = "{$_SERVER['PHP_SELF']}?sort=ema";
 		break;
+
+		case 'sta':
+		$order_by = 'memDesc ASC';
+		$link6 = "{$_SERVER['PHP_SELF']}?sort=sta";
+		break;
 		
 		default:
 		$order_by = 'CardNo DESC';
