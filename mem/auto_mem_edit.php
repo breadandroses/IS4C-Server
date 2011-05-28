@@ -29,13 +29,6 @@
        <tr>
         <td align="right" height="20">
         <span style="color:AAAAAA">
-<!--- tak
-        search for product&nbsp;
-        </span>
-        <input type="text" onFocus="this.style.background='FFFFFF';" onBlur="this.style.background='F9F9F9';">&nbsp;
-        <input type="submit" style="padding:0;background-color:330066;border:0;color:FFFFFF;width:25;font-weight:bold" value="GO">
-tak ---->
-        </td>
        </tr>
       </table>
      </td>
@@ -57,9 +50,9 @@ tak ---->
   <td width="170" bgcolor="FFFFFF" valign="top">
   <span style="font-size:6px"><br></span>
   <div align="center">
-	<?php
-		include_once($_SERVER["DOCUMENT_ROOT"].'/src/navbar.html');
-	?>
+<?php
+include_once($_SERVER["DOCUMENT_ROOT"].'/src/navbar.html');
+?>
   <span style="font-size:6px"><br></span>
   </div>
   </td>
@@ -96,7 +89,7 @@ tak ---->
        <tr>
         <td style="color:999999;line-height:1.6em">
         <div align="justify">
-       			<?php include("edit_member.php"); ?>
+<?php include("edit_member.php"); ?>
         </div>
         </td>
        </tr>

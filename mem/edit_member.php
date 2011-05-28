@@ -204,26 +204,49 @@ if (mysql_num_rows($result) == 1)
 	<h2>Edit a Member.</h2>
 	<form action="auto_mem_edit.php" method="post">
 		<p>
-			Card Number:
-			<?php $CardNo = $row["CardNo"] ?>
-			<?=$row["CardNo"]?>
+                    Card Number:
+                    <?php $CardNo = $row["CardNo"] ?>
+                    <?=$row["CardNo"]?>
 		</p>
-		<p>
-			First Name:
-			<input type="text" name="first_name" size="15" maxlength="15" value="<?=$row["FirstName"]?>" />
-		</p>
-		<p>
-			Last Name:
-			<input type="text" name="last_name" size="15" maxlength="30" value="<?=$row["LastName"]?>" />
-		</p>
-		<p>
-		    E-Mail Address:
-		    <input type="text" name="email" size = "20" maxlength="100" value="<?=$row["email"]?>" />
-		</p>
-		<p>
-		    Phone Number:
-		    <input type="text" name="phone_number" size = "15" maxlength="30" value="<?=$row["phoneNo"]?>" />
-		</p>
+                <div style="border: 1px; border-color: #000000; border-style: solid">
+                    <h3>Contact Information:</h3>
+                     <p>
+                         First Name:
+                         <input type="text" name="first_name" size="15" maxlength="15" value="<?=$row["FirstName"]?>" required />
+		     </p>
+		     <p>
+                         Last Name:
+                         <input type="text" name="last_name" size="15" maxlength="30" value="<?=$row["LastName"]?>" required />
+                     </p>
+                     <p>
+                         E-Mail Address:
+                         <input type="email" name="email" size = "20" maxlength="100" value="<?=$row["email"]?>" />
+                     </p>
+                     <p>
+                         Phone Number:
+                         <input type="text" name="phone_number" size = "15" maxlength="30" value="<?=$row["phoneNo"]?>" />
+                     </p>
+                     <p>
+                         Address:
+                         <div style="border: 1px; border-color: #000000; border-style: dashed;">
+                             <input type="text" name="street1" size = "20" maxlength="50" placeholder="Street Line 1" value="<?=$row["addressStreet"]?>" /><br />
+                             <input type="text" name="street2" size = "20" maxlength="50" placeholder="Street Line 2" value="<?=$row["addressStreet2"]?>" /><br />
+                             <input type="text" name="city" size = "20" maxlength="20" placeholder="City" value="<?=$row["addressCity"]?>" />
+                             <input type="text" name="state" size = "2" maxlength="2" placeholder="FL" value="<?=$row["addressState"]?>" />
+                             <input type="text" name="zip" size = "10" maxlength="10" placeholder="Zipcode" value="<?=$row["addressZip"]?>" /><br />
+                         </div>
+                     </p>
+                    </div>
+                    <div style="border: 1px; border-color: #000000; border-style: solid">
+                        <h3>Availability:</h3>
+                        <input type="checkbox" name="available_sunday" <?=$row["availableSunday"]?'checked':''?>/> Sundays <input type="text" name"available_sunday_hours" size="20" maxlength="20" placeholder="Available Hours" value="<?=$row["availableSundayHours"]?>" /?><br />
+                        <input type="checkbox" name="available_monday" <?=$row["availableMonday"]?'checked':''?>/> Mondays <input type="text" name"available_monday_hours" size="20" maxlength="20" placeholder="Available Hours" value="<?=$row["availableMondayHours"]?>" /?><br />
+                        <input type="checkbox" name="available_tuesday" <?=$row["availableTuesday"]?'checked':''?>/> Tuesdays <input type="text" name"available_tuesday_hours" size="20" maxlength="20" placeholder="Available Hours" value="<?=$row["availableTuesdayHours"]?>" /?><br />
+                        <input type="checkbox" name="available_wednesday" <?=$row["availableWednesday"]?'checked':''?>/> Wednesdays <input type="text" name"available_wednesday_hours" size="20" maxlength="20" placeholder="Available Hours" value="<?=$row["availableWednesdayHours"]?>" /?><br />
+                        <input type="checkbox" name="available_thursday" <?=$row["availableThursday"]?'checked':''?>/> Thursdays <input type="text" name"available_thursday_hours" size="20" maxlength="20" placeholder="Available Hours" value="<?=$row["availableThursdayHours"]?>" /?><br />
+                        <input type="checkbox" name="available_friday" <?=$row["availableFriday"]?'checked':''?>/> Fridays <input type="text" name"available_friday_hours" size="20" maxlength="20" placeholder="Available Hours" value="<?=$row["availableFridayHours"]?>" /?><br />
+                        <input type="checkbox" name="available_saturday" <?=$row["availableSaturday"]?'checked':''?>/> Saturdays <input type="text" name"available_saturday_hours" size="20" maxlength="20" placeholder="Available Hours" value="<?=$row["availableSaturdayHours"]?>" /?><br />
+                </div>
 		
 	<?php
 	if ($row["staff"] == 1 || $row["staff"] == 2 || $row["staff"] == 5)
