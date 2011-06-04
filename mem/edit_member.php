@@ -75,6 +75,35 @@ if (isset($_POST['submitted']))
 	}
 	$email = escape_data($_POST['email']);
 	$phoneNo = escape_data($_POST['phone_number']);
+	$street1 = escape_data($_POST['street1']);
+	$street2 = escape_data($_POST['street2']);
+	$city = escape_data($_POST['city']);
+	$state = escape_data($_POST['state']);
+	$zip = escape_data($_POST['zip']);
+	$available_sunday = (isset($_POST['available_sunday']) && $_POST['available_sunday'] == 'on'?1:0);
+	$available_monday = (isset($_POST['available_monday']) && $_POST['available_monday'] == 'on'?1:0);
+	$available_tuesday = (isset($_POST['available_tuesday']) && $_POST['available_tuesday'] == 'on'?1:0);
+	$available_wednesday = (isset($_POST['available_wednesday']) && $_POST['available_wednesday'] == 'on'?1:0);
+	$available_thursday = (isset($_POST['available_thursday']) && $_POST['available_thursday'] == 'on'?1:0);
+	$available_friday = (isset($_POST['available_friday']) && $_POST['available_friday'] == 'on'?1:0);
+	$available_saturday = (isset($_POST['available_saturday']) && $_POST['available_saturday'] == 'on'?1:0);
+	$experience_org = (isset($_POST['experience_org']) && $_POST['experience_org'] == 'on'?1:0);
+	$experience_clean = (isset($_POST['experience_clean']) && $_POST['experience_clean'] == 'on'?1:0);
+	$experience_cashier = (isset($_POST['experience_cashier']) && $_POST['experience_cashier'] == 'on'?1:0);
+	$experience_phone = (isset($_POST['experience_phone']) && $_POST['experience_phone'] == 'on'?1:0);
+	$experience_customer = (isset($_POST['experience_customer']) && $_POST['experience_customer'] == 'on'?1:0);
+	$experience_grocery = (isset($_POST['experience_grocery']) && $_POST['experience_grocery'] == 'on'?1:0);
+	$experience_paper = (isset($_POST['experience_paper']) && $_POST['experience_paper'] == 'on'?1:0);
+	$skills_computer = (isset($_POST['skills_computer']) && $_POST['skills_computer'] == 'on'?1:0);
+	$skills_computer_list = escape_data($_POST['skills_computer_list']);
+	$skills_database = (isset($_POST['skills_database']) && $_POST['skills_database'] == 'on'?1:0);
+	$skills_database_list = escape_data($_POST['skills_database_list']);
+	$skills_construction = (isset($_POST['skills_construction']) && $_POST['skills_construction'] == 'on'?1:0);
+	$skills_construction_list = escape_data($_POST['skills_construction_list']);
+	$skills_truckvan = (isset($_POST['skills_truckvan']) && $_POST['skills_truckvan'] == 'on'?1:0);
+	$skills_truckvan_list = escape_data($_POST['skills_truckvan_list']);
+	$languages = escape_data($_POST['languages']);
+
 	if ((isset($_POST['charge_ok'])) && ($_POST['charge_ok'] = 'on'))
 	{
 		$ChargeOk = 1;
@@ -133,7 +162,36 @@ if (isset($_POST['submitted']))
 				memType = $memtype,
 				Type = '$Type',
 				staff = '$staff',
-				ChargeOk = $ChargeOk
+				ChargeOk = $ChargeOk,
+				addressStreet = '$street1',
+				addressStreet2 = '$street2',
+				addressCity = '$city',
+				addressState = '$state',
+				addressZip = '$zip',
+				applicationDate = NULL,
+				availableSunday = $available_sunday,
+				availableMonday = $available_monday,
+				availableTuesday = $available_tuesday,
+				availableWednesday = $available_wednesday,
+				availableThursday = $available_thursday,
+				availableFriday = $available_friday,
+				availableSaturday = $available_saturday,
+				experienceOrganization = $experience_org,
+				experienceCleaning = $experience_clean,
+				experienceCashier = $experience_cashier,
+				experiencePhone = $experience_phone,
+				experienceCustomerService = $experience_customer,
+				experienceGrocery = $experience_grocery,
+				experiencePaperwork = $experience_paper,
+				skillsComputers = $skills_computer,
+				skillsComputersList = '$skills_computer_list',
+				skillsDatabase = $skills_database,
+				skillsDatabaseList = '$skills_database_list',
+				skillsConstruction = $skills_construction,
+				skillsConstructionList = '$skills_construction_list',
+				skillsTruckVan = $skills_truckvan,
+				skillsTruckVanList = '$skills_truckvan_list',
+				languages = '$languages'
 				WHERE id = $id;
 		";
 		$result = @mysql_query($query);
@@ -150,6 +208,7 @@ if (isset($_POST['submitted']))
 			<b>1.)</b> The member could not be edited due to a system error.<br />
 			<b>2.)</b> Nothing was changed.</p>';
 			echo '<p>' . mysql_error() . '<br /><br />Query: ' . $query . '</p>';
+			print_r($_POST);
 		}
 	}
 	else
@@ -227,15 +286,15 @@ if (mysql_num_rows($result) == 1)
                          <input type="text" name="phone_number" size = "15" maxlength="30" value="<?=$row["phoneNo"]?>" />
                      </p>
                      <p>
-                         Address:
                          <div style="border: 1px; border-color: #000000; border-style: dashed;">
+			     Address:<br/>
                              <input type="text" name="street1" size = "20" maxlength="50" placeholder="Street Line 1" value="<?=$row["addressStreet"]?>" /><br />
                              <input type="text" name="street2" size = "20" maxlength="50" placeholder="Street Line 2" value="<?=$row["addressStreet2"]?>" /><br />
                              <input type="text" name="city" size = "20" maxlength="20" placeholder="City" value="<?=$row["addressCity"]?>" />
                              <input type="text" name="state" size = "2" maxlength="2" placeholder="FL" value="<?=$row["addressState"]?>" />
                              <input type="text" name="zip" size = "10" maxlength="10" placeholder="Zipcode" value="<?=$row["addressZip"]?>" /><br />
                          </div>
-                     </p>
+                    </p>
                     </div>
                     <div style="border: 1px; border-color: #000000; border-style: solid">
                         <h3>Availability:</h3>
@@ -246,8 +305,27 @@ if (mysql_num_rows($result) == 1)
                         <input type="checkbox" name="available_thursday" <?=$row["availableThursday"]?'checked':''?>/> Thursdays <input type="text" name"available_thursday_hours" size="20" maxlength="20" placeholder="Available Hours" value="<?=$row["availableThursdayHours"]?>" /?><br />
                         <input type="checkbox" name="available_friday" <?=$row["availableFriday"]?'checked':''?>/> Fridays <input type="text" name"available_friday_hours" size="20" maxlength="20" placeholder="Available Hours" value="<?=$row["availableFridayHours"]?>" /?><br />
                         <input type="checkbox" name="available_saturday" <?=$row["availableSaturday"]?'checked':''?>/> Saturdays <input type="text" name"available_saturday_hours" size="20" maxlength="20" placeholder="Available Hours" value="<?=$row["availableSaturdayHours"]?>" /?><br />
+                    </div>
+                    <div style="border: 1px; border-color: #000000; border-style: solid;">
+                        <h3>Experience:</h3>
+                        <input type="checkbox" name="experience_org" <?=$row["experienceOrganization"]?'checked':''?> />Co-op Organization / Team Management Experience<br />
+                        <input type="checkbox" name="experience_clean" <?=$row["experienceCleaning"]?'checked':''?> />Cleaning / Maintenance<br />
+                        <input type="checkbox" name="experience_cashier" <?=$row["experienceCashier"]?'checked':''?> />Cashier Experience<br />
+                        <input type="checkbox" name="experience_phone" <?=$row["experiencePhone"]?'checked':''?> />Enjoy Phone Work<br />
+                        <input type="checkbox" name="experience_customer" <?=$row["experienceCustomerService"]?'checked':''?> />Customer Service Experience<br />
+                        <input type="checkbox" name="experience_grocery" <?=$row["experienceGrocery"]?'checked':''?> />Grocery Experience<br />
+                        <input type="checkbox" name="experience_paper" <?=$row["experiencePaperwork"]?'checked':''?> />Paper Work / Data Entry<br />
+                    </div>
+                    <div style="border: 1px; border-color: #000000; border-style: solid;">
+                        <h3>Skills:</h3>
+                        <input type="checkbox" name="skills_computer" <?=$row["skillsComputers"]?'checked':''?> />Computers <input type="text" name="skills_computer_list" size="30" maxlength="30" placeholder="Skills" value="<?=$row["skillsComputersList"]?>" /><br />
+                        <input type="checkbox" name="skills_database" <?=$row["skillsDatabase"]?'checked':''?> />Database Programming / Operation <input type="text" name="skills_database_list" size="30" maxlength="30" placeholder="Skills" value="<?=$row["skillsDatabaseList"]?>" /><br />
+                        <input type="checkbox" name="skills_construction" <?=$row["skillsConstruction"]?'checked':''?> />Construction / Electrical / Plumbing <input type="text" name="skills_construction_list" size="30" maxlength="30" placeholder="Skills" value="<?=$row["skillsConstructionList"]?>" /><br />
+                        <input type="checkbox" name="skills_truckvan" <?=$row["skillsTruckVan"]?'checked':''?> />Own a truck or van <input type="text" name="skills_truckvan_list" size="30" maxlength="30" placeholder="Skills" value="<?=$row["skillsTruckVanList"]?>" /><br />
+                        Languages: <input type="text" name="languages" size="30" maxlength="30" value="<?=$row["languages"]?>" /><br />
+                    </div>
                 </div>
-		
+
 	<?php
 	if ($row["staff"] == 1 || $row["staff"] == 2 || $row["staff"] == 5)
 	{
