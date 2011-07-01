@@ -270,19 +270,19 @@ if (mysql_num_rows($result) == 1)
                 <div style="border: 1px; border-color: #000000; border-style: solid">
                     <h3>Contact Information:</h3>
                      <p>
-                         First Name:
+                         First Name:<br/>
                          <input type="text" name="first_name" size="15" maxlength="15" value="<?=$row["FirstName"]?>" required />
 		     </p>
 		     <p>
-                         Last Name:
+                         Last Name:<br/>
                          <input type="text" name="last_name" size="15" maxlength="30" value="<?=$row["LastName"]?>" required />
                      </p>
                      <p>
-                         E-Mail Address:
+                         E-Mail Address:<br/>
                          <input type="email" name="email" size = "20" maxlength="100" value="<?=$row["email"]?>" />
                      </p>
                      <p>
-                         Phone Number:
+                         Phone Number:<br/>
                          <input type="text" name="phone_number" size = "15" maxlength="30" value="<?=$row["phoneNo"]?>" />
                      </p>
                      <p>
@@ -298,31 +298,43 @@ if (mysql_num_rows($result) == 1)
                     </div>
                     <div style="border: 1px; border-color: #000000; border-style: solid">
                         <h3>Availability:</h3>
-                        <input type="checkbox" name="available_sunday" <?=$row["availableSunday"]?'checked':''?>/> Sundays <input type="text" name"available_sunday_hours" size="20" maxlength="20" placeholder="Available Hours" value="<?=$row["availableSundayHours"]?>" /?><br />
-                        <input type="checkbox" name="available_monday" <?=$row["availableMonday"]?'checked':''?>/> Mondays <input type="text" name"available_monday_hours" size="20" maxlength="20" placeholder="Available Hours" value="<?=$row["availableMondayHours"]?>" /?><br />
-                        <input type="checkbox" name="available_tuesday" <?=$row["availableTuesday"]?'checked':''?>/> Tuesdays <input type="text" name"available_tuesday_hours" size="20" maxlength="20" placeholder="Available Hours" value="<?=$row["availableTuesdayHours"]?>" /?><br />
-                        <input type="checkbox" name="available_wednesday" <?=$row["availableWednesday"]?'checked':''?>/> Wednesdays <input type="text" name"available_wednesday_hours" size="20" maxlength="20" placeholder="Available Hours" value="<?=$row["availableWednesdayHours"]?>" /?><br />
-                        <input type="checkbox" name="available_thursday" <?=$row["availableThursday"]?'checked':''?>/> Thursdays <input type="text" name"available_thursday_hours" size="20" maxlength="20" placeholder="Available Hours" value="<?=$row["availableThursdayHours"]?>" /?><br />
-                        <input type="checkbox" name="available_friday" <?=$row["availableFriday"]?'checked':''?>/> Fridays <input type="text" name"available_friday_hours" size="20" maxlength="20" placeholder="Available Hours" value="<?=$row["availableFridayHours"]?>" /?><br />
-                        <input type="checkbox" name="available_saturday" <?=$row["availableSaturday"]?'checked':''?>/> Saturdays <input type="text" name"available_saturday_hours" size="20" maxlength="20" placeholder="Available Hours" value="<?=$row["availableSaturdayHours"]?>" /?><br />
+                        <input type="checkbox" name="available_sunday" id="available_sunday" <?=$row["availableSunday"]?'checked':''?>/> <label for="available_sunday">Sundays</label><br/>
+			<input type="text" name"available_sunday_hours" size="20" maxlength="20" placeholder="Available Hours" value="<?=$row["availableSundayHours"]?>" /?><br />
+                        <input type="checkbox" name="available_monday" id="available_monday" <?=$row["availableMonday"]?'checked':''?>/> <label for="available_monday">Mondays</label><br/>
+			<input type="text" name"available_monday_hours" size="20" maxlength="20" placeholder="Available Hours" value="<?=$row["availableMondayHours"]?>" /?><br />
+                        <input type="checkbox" name="available_tuesday" id="available_tuesday" <?=$row["availableTuesday"]?'checked':''?>/> <label for="available_tuesday">Tuesdays</label><br/>
+			<input type="text" name"available_tuesday_hours" size="20" maxlength="20" placeholder="Available Hours" value="<?=$row["availableTuesdayHours"]?>" /?><br />
+                        <input type="checkbox" name="available_wednesday" id="available_wednesday" <?=$row["availableWednesday"]?'checked':''?>/> <label for="available_wednesday">Wednesdays</label><br/>
+			<input type="text" name"available_wednesday_hours" size="20" maxlength="20" placeholder="Available Hours" value="<?=$row["availableWednesdayHours"]?>" /?><br />
+                        <input type="checkbox" name="available_thursday" id="available_thursday" <?=$row["availableThursday"]?'checked':''?>/> <label for="available_thursday">Thursdays</label><br/>
+			<input type="text" name"available_thursday_hours" size="20" maxlength="20" placeholder="Available Hours" value="<?=$row["availableThursdayHours"]?>" /?><br />
+                        <input type="checkbox" name="available_friday" id="available_friday" <?=$row["availableFriday"]?'checked':''?>/> <label for="available_friday">Fridays</label><br/>
+			<input type="text" name"available_friday_hours" size="20" maxlength="20" placeholder="Available Hours" value="<?=$row["availableFridayHours"]?>" /?><br />
+                        <input type="checkbox" name="available_saturday" id="available_saturday" <?=$row["availableSaturday"]?'checked':''?>/> <label for="available_saturday">Saturdays</label><br/>
+			<input type="text" name"available_saturday_hours" size="20" maxlength="20" placeholder="Available Hours" value="<?=$row["availableSaturdayHours"]?>" /?><br />
                     </div>
                     <div style="border: 1px; border-color: #000000; border-style: solid;">
                         <h3>Experience:</h3>
-                        <input type="checkbox" name="experience_org" <?=$row["experienceOrganization"]?'checked':''?> />Co-op Organization / Team Management Experience<br />
-                        <input type="checkbox" name="experience_clean" <?=$row["experienceCleaning"]?'checked':''?> />Cleaning / Maintenance<br />
-                        <input type="checkbox" name="experience_cashier" <?=$row["experienceCashier"]?'checked':''?> />Cashier Experience<br />
-                        <input type="checkbox" name="experience_phone" <?=$row["experiencePhone"]?'checked':''?> />Enjoy Phone Work<br />
-                        <input type="checkbox" name="experience_customer" <?=$row["experienceCustomerService"]?'checked':''?> />Customer Service Experience<br />
-                        <input type="checkbox" name="experience_grocery" <?=$row["experienceGrocery"]?'checked':''?> />Grocery Experience<br />
-                        <input type="checkbox" name="experience_paper" <?=$row["experiencePaperwork"]?'checked':''?> />Paper Work / Data Entry<br />
+                        <input type="checkbox" name="experience_org" id="experience_org" <?=$row["experienceOrganization"]?'checked':''?> /><label for="experience_org">Co-op Organization / Team Management Experience</label><br />
+                        <input type="checkbox" name="experience_clean" id="experience_clean" <?=$row["experienceCleaning"]?'checked':''?> /><label for="experience_clean">Cleaning / Maintenance</label><br />
+                        <input type="checkbox" name="experience_cashier" id="experience_cashier" <?=$row["experienceCashier"]?'checked':''?> /><label for="experience_cashier">Cashier Experience</label><br />
+                        <input type="checkbox" name="experience_phone" id="experience_phone" <?=$row["experiencePhone"]?'checked':''?> /><label for="experience_phone">Enjoy Phone Work</label><br />
+                        <input type="checkbox" name="experience_customer" id="experience_customer" <?=$row["experienceCustomerService"]?'checked':''?> /><label for="experience_customer">Customer Service Experience</label><br />
+                        <input type="checkbox" name="experience_grocery" id="experience_grocery" <?=$row["experienceGrocery"]?'checked':''?> /><label for="experience_grocery">Grocery Experience</label><br />
+                        <input type="checkbox" name="experience_paper" id="experience_paper" <?=$row["experiencePaperwork"]?'checked':''?> /><label for="experience_paper">Paper Work / Data Entry</label><br />
                     </div>
                     <div style="border: 1px; border-color: #000000; border-style: solid;">
                         <h3>Skills:</h3>
-                        <input type="checkbox" name="skills_computer" <?=$row["skillsComputers"]?'checked':''?> />Computers <input type="text" name="skills_computer_list" size="30" maxlength="30" placeholder="Skills" value="<?=$row["skillsComputersList"]?>" /><br />
-                        <input type="checkbox" name="skills_database" <?=$row["skillsDatabase"]?'checked':''?> />Database Programming / Operation <input type="text" name="skills_database_list" size="30" maxlength="30" placeholder="Skills" value="<?=$row["skillsDatabaseList"]?>" /><br />
-                        <input type="checkbox" name="skills_construction" <?=$row["skillsConstruction"]?'checked':''?> />Construction / Electrical / Plumbing <input type="text" name="skills_construction_list" size="30" maxlength="30" placeholder="Skills" value="<?=$row["skillsConstructionList"]?>" /><br />
-                        <input type="checkbox" name="skills_truckvan" <?=$row["skillsTruckVan"]?'checked':''?> />Own a truck or van <input type="text" name="skills_truckvan_list" size="30" maxlength="30" placeholder="Skills" value="<?=$row["skillsTruckVanList"]?>" /><br />
-                        Languages: <input type="text" name="languages" size="30" maxlength="30" value="<?=$row["languages"]?>" /><br />
+                        <input type="checkbox" name="skills_computer" id="skills_computer" <?=$row["skillsComputers"]?'checked':''?> /><label for="skills_computer">Computers</label><br/>
+			<input type="text" name="skills_computer_list" size="30" maxlength="30" placeholder="Skills" value="<?=$row["skillsComputersList"]?>" /><br />
+                        <input type="checkbox" name="skills_database" id="skills_database" <?=$row["skillsDatabase"]?'checked':''?> /><label for="skills_database">Database Programming / Operation</label><br/>
+			<input type="text" name="skills_database_list" size="30" maxlength="30" placeholder="Skills" value="<?=$row["skillsDatabaseList"]?>" /><br />
+                        <input type="checkbox" name="skills_construction" id="skills_construction" <?=$row["skillsConstruction"]?'checked':''?> /><label for="skills_construction">Construction / Electrical / Plumbing</label><br/>
+			<input type="text" name="skills_construction_list" size="30" maxlength="30" placeholder="Skills" value="<?=$row["skillsConstructionList"]?>" /><br />
+                        <input type="checkbox" name="skills_truckvan" id="skills_truckvan" <?=$row["skillsTruckVan"]?'checked':''?> /><label for="skills_truckvan">Own a truck or van</label><br/>
+			<input type="text" name="skills_truckvan_list" size="30" maxlength="30" placeholder="Skills" value="<?=$row["skillsTruckVanList"]?>" /><br />
+                        Languages:<br/>
+			<input type="text" name="languages" size="30" maxlength="30" value="<?=$row["languages"]?>" /><br />
                     </div>
                 </div>
 
@@ -380,6 +392,55 @@ if (mysql_num_rows($result) == 1)
 		<input type="hidden" name="id" value="<?=$id?>" />
 	</form>
 
+    <!-- This section displays payment  history -->
+    <h3>Payment History</h3>
+    <table border='1'>
+        <tr>
+            <th>Date</th>
+            <th>Type</th>
+            <th>Check #</th>
+            <th>Amount</th>
+        </tr>
+<?php
+$query =
+    '
+SELECT date,
+    type,
+    check_number,
+    amount
+    FROM member_payments
+    WHERE mem_id = 2
+	AND void = FALSE
+    ORDER BY date;
+    ';
+$result = @mysql_query($query);
+$payment_total = 0;
+while ($row = mysql_fetch_array($result, MYSQL_ASSOC))
+{
+    $payment_total += $row['amount'];
+?>
+        <tr>
+            <td><?=$row['date']?></td>
+            <td><?=$row['type']?></td>
+            <td><?=$row['check_number']?></td>
+            <td><?=$row['amount']?></td>
+        </tr>
+<?php
+}
+if ($payment_total == 0)
+{?>
+        <tr>
+            <td colspan='4'>No payments on record</td>
+        </tr>
+<?php
+}
+?>
+        <tr>
+            <td colspan='4'>Total Payment: $<?=number_format($payment_total, 2)?></td>
+        </tr>
+    </table>
+
+    <h3>Volunteer History</h3>
     <!-- This section shows the last six shifts assigned to this member -->
     <table border='1'>
         <tr>
