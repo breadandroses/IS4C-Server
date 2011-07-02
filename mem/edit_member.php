@@ -21,6 +21,11 @@
 
 *********************************************************************************/
 
+?>
+<script language="javascript" type="text/javascript" src="/js/jquery-1.6.1.min.js"></script>
+<?php
+
+
 // A page to view and edit a member's details.
 
 $page_title = 'Edit a Member';
@@ -393,53 +398,11 @@ if (mysql_num_rows($result) == 1)
     </form>
 
     <!-- This section displays payment  history -->
-    <h3>Payment History</h3>
-    <table border='1'>
-        <tr>
-            <th>Date</th>
-            <th>Type</th>
-            <th>Check #</th>
-            <th>Amount</th>
-        </tr>
-<?php
-$query =
-    '
-SELECT date,
-    type,
-    check_number,
-    amount
-    FROM member_payments
-    WHERE mem_id = 2
-    AND void = FALSE
-    ORDER BY date;
-    ';
-$result = @mysql_query($query);
-$payment_total = 0;
-while ($row = mysql_fetch_array($result, MYSQL_ASSOC))
-{
-    $payment_total += $row['amount'];
-?>
-        <tr>
-            <td><?=$row['date']?></td>
-            <td><?=$row['type']?></td>
-            <td><?=$row['check_number']?></td>
-            <td><?=$row['amount']?></td>
-        </tr>
-<?php
-}
-if ($payment_total == 0)
-{?>
-        <tr>
-            <td colspan='4'>No payments on record</td>
-        </tr>
-<?php
-}
-?>
-        <tr>
-            <td colspan='4'>Total Payment: $<?=number_format($payment_total, 2)?></td>
-        </tr>
-    </table>
-
+    <div id="payment"></div>
+    <script type='text/javascript'>
+        $("#payment").load('payment.php');
+    </script>
+    
     <h3>Volunteer History</h3>
     <!-- This section shows the last six shifts assigned to this member -->
     <table border='1'>
