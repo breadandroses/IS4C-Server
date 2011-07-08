@@ -18,6 +18,10 @@
     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 
 *********************************************************************************/
+if (isset($_GET['id']) && is_numeric($_GET['id']))
+{
+    $id = $_GET['id'];
+}
 ?>
 <table>
     <tr>
@@ -27,20 +31,19 @@
         <th>Amount</th>
     </tr>
     <tr>
-        <td><input type="date" value="<?=date('Y-m-d')?>" size="10"/></td>
+        <td><input id="date" type="date" value="<?=date('Y-m-d')?>" size="10"/></td>
         <td>
-            <select>
+            <select id="type">
                 <option value="Check">Check</option>
                 <option value="Cash">Cash</option>
             </select>
         </td>
-        <td><input type="number" min="0" size="5"/></td>
-        <td><input type="number" min="0" max="999.99" value="0.00" size="9"/></td>
+        <td><input id="check" type="number" min="0" size="5"/></td>
+        <td><input id="amount" type="number" min="0" max="999.99" value="0.00" size="9"/></td>
     </tr>
     <tr>
         <td colspan="4">
-            <span style="float: left" onclick="confirm_payment()">Add</span> <span style="float: right" onclick="cancel_payment()">Cancel</span><br />
+            <span style="float: left" onclick="confirm_payment(<?=$id?>, $('#date').val(), $('#type').val(), $('#check').val(), $('#amount').val());">Add</span> <span style="float: right" onclick="cancel_payment()">Cancel</span><br />
         </td>
     </tr>
 </table>
-

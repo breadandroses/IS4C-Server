@@ -18,29 +18,95 @@
     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 
 *********************************************************************************/
-?>
-<table>
-    <tr>
-        <th>Date</th>
-        <th>Type</th>
-        <th>Check #</th>
-        <th>Amount</th>
-    </tr>
-    <tr>
-        <td><input type="date" value="<?=date('Y-m-d')?>" size="10"/></td>
-        <td>
-            <select>
-                <option value="Check">Check</option>
-                <option value="Cash">Cash</option>
-            </select>
-        </td>
-        <td><input type="number" min="0" size="5"/></td>
-        <td><input type="number" min="0" max="999.99" value="0.00" size="9"/></td>
-    </tr>
-    <tr>
-        <td colspan="4">
-            <span style="float: left" onclick="confirm_payment()">Add</span> <span style="float: right" onclick="cancel_payment()">Cancel</span><br />
-        </td>
-    </tr>
-</table>
 
+require_once($_SERVER["DOCUMENT_ROOT"] . '/src/mysql_connect.php');
+
+if (isset($_GET['id']) && is_numeric($_GET['id']))
+{
+    $id = $_GET['id'];
+}
+else
+{
+    $id = null;
+}
+
+if (isset($_GET['date']))
+{
+    $date = $_GET['date'];
+}
+else
+{
+    $date = null;
+}
+
+if (isset($_GET['type']))
+{
+    $type = $_GET['type'];
+}
+else
+{
+    $type = null;
+}
+
+if (isset($_GET['check']) && is_numeric($_GET['check']))
+{
+    $check = $_GET['check'];
+}
+else
+{
+    $check = 'null';
+}
+
+if (isset($_GET['amount']) && is_numeric($_GET['amount']))
+{
+    $amount = $_GET['amount'];
+}
+else
+{
+    $amount = null;
+}
+
+$error = null;
+
+if (is_null($id) or is_null($date) or is_null($type) or is_null($amount))
+{
+    $error = 'Not all parameters specified.';
+}
+
+if (strtoupper($type) == 'CHECK' && $check == 'null')
+{
+    $error = 'No check number specified.';
+}
+
+if ($error == null)
+{
+    $query = "
+    INSERT INTO member_payments
+        (
+            mem_id,
+            date,
+            type,
+            check_number,
+            amount
+        )
+        VALUES
+        (
+            " . $id . ",
+            '" . $date . "',
+            '" . $type . "',
+            " . $check . ",
+            " . $amount . "
+        );";
+
+    $result = @mysql_query($query);
+    include('/mem/payment.php?id=' . $id);
+    if (mysql_affected_rows() != 1)
+    {
+        echo 'Error while adding payment. ' . mysql_error();
+    }
+}
+else
+{
+    include('/mem/payment.php?id=' . $id);
+    echo 'Error: ' . $error;
+}

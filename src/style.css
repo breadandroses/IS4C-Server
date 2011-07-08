@@ -115,7 +115,7 @@ td.pme-stats   { text-align: right;  }
   display: none;
   left: 0px;
   position: absolute;
-  top: 0px
+  top: 0px;
   height: 250px;
   width: 250px;
   z-index: 99;

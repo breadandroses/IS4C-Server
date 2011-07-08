@@ -3,6 +3,10 @@
 
 <?php
 require_once($_SERVER["DOCUMENT_ROOT"] . '/src/mysql_connect.php'); // Connect to the database.
+if (isset($_GET['id']) && is_numeric($_GET['id']))
+{
+    $id = $_GET['id'];
+}
 ?>
     <!-- This section displays payment  history -->
     <h3>Payment History</h3>
@@ -21,7 +25,7 @@ SELECT date,
     check_number,
     amount
     FROM member_payments
-    WHERE mem_id = 2
+    WHERE mem_id = ' . $id . '
     AND void = FALSE
     ORDER BY date;
     ';
@@ -51,4 +55,4 @@ if ($payment_total == 0)
             <td colspan='4'>Total Payment: $<?=number_format($payment_total, 2)?></td>
         </tr>
     </table>
-    <div id="add_payment" style="opacity: 1"><span style="opactiy: 1;" onclick="show_payment();">Add payment</span></div>
+    <div id="add_payment" style="opacity: 1"><span style="opactiy: 1;" onclick="show_payment(<?=$id?>);">Add payment</span></div>

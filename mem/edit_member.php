@@ -400,7 +400,7 @@ if (mysql_num_rows($result) == 1)
     <!-- This section displays payment  history -->
     <div id="payment"></div>
     <script type='text/javascript'>
-        $("#payment").load('payment.php');
+        $("#payment").load('payment.php?id=<?=$id?>');
     </script>
     
     <h3>Volunteer History</h3>
