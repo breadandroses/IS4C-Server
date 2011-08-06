@@ -11,6 +11,5 @@ function cancel_payment(user)
 
 function confirm_payment(user, date, type, check, amount)
 {
-    console.log('user: ' + user + ' date: ' + date + ' type: ' + type + ' check: ' + check + ' amount: ' + amount);
     $("#payment").load("confirm_payment.php?id=" + user + "&date=" + date + "&type=" + type + "&check=" + check + "&amount=" + amount);
 }

@@ -100,6 +100,8 @@ if ($error == null)
 
     $result = @mysql_query($query);
     include('/mem/payment.php?id=' . $id);
+    require_once($_SERVER["DOCUMENT_ROOT"] . '/mem/payment.php');
+
     if (mysql_affected_rows() != 1)
     {
         echo 'Error while adding payment. ' . mysql_error();
@@ -107,6 +109,8 @@ if ($error == null)
 }
 else
 {
+    require_once($_SERVER["DOCUMENT_ROOT"] . '/mem/payment.php');
     include('/mem/payment.php?id=' . $id);
     echo 'Error: ' . $error;
 }
+
