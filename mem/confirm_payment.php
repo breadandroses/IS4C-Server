@@ -102,7 +102,7 @@ if ($error == null)
     include('/mem/payment.php?id=' . $id);
     require_once($_SERVER["DOCUMENT_ROOT"] . '/mem/payment.php');
 
-    if (mysql_affected_rows() != 1)
+    if (mysql_affected_rows() == 0)
     {
         echo 'Error while adding payment. ' . mysql_error();
     }
