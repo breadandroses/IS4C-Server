@@ -113,4 +113,3 @@ else
     include('/mem/payment.php?id=' . $id);
     echo 'Error: ' . $error;
 }
-
