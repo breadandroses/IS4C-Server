@@ -21,9 +21,6 @@
 
 *********************************************************************************/
 
-
-
-
 // A page to search the member base.
 $page_title='Find a Member';
 include ('./includes/header.html');
@@ -71,18 +68,38 @@ if ((isset($_POST['submitted'])) || (isset($_GET['sort']))) { // If the form has
 				$sm = "cardno = $cn";
 			}
 			break;
+
+			case 'em':
+			if (empty($_POST['email'])) {
+				
+				$errors[] = 'You left their email blank.';
+				
+			} else {
+				$em = escape_data($_POST['email']); // Store the member number.
+				$sm = "email LIKE '%$em%'";
+			}
+			break;
+
+			case 'ty':
+			if (is_null($_POST['type'])) {
+				$errors[] = 'You left their type blank.';
+			} else {
+				$ty = escape_data($_POST['type']); // Store the member number.
+                $sm = "custdata.memType = $ty";
+			}
+			break;
 		}
 	} else {$sm = $_GET['sm'];}
 	if (empty($errors)) {
 		$sm = stripslashes($sm);
 		$query = "SELECT * FROM custdata WHERE " . $sm;
 		$result = @mysql_query($query);
-		
+
 		if (mysql_num_rows($result) == 0) { // No results
 			echo '<h1 id="mainhead">Error!</h1>
 			<p class="error">Your search yielded no results.</p>';
 		} else { // Results!
-			
+
 			// How many records per page.
 			$display = 25;
 			
@@ -114,6 +131,7 @@ if ((isset($_POST['submitted'])) || (isset($_GET['sort']))) { // If the form has
 			$link1 = "{$_SERVER['PHP_SELF']}?sort=lna";
 			$link2 = "{$_SERVER['PHP_SELF']}?sort=fna";
 			$link3 = "{$_SERVER['PHP_SELF']}?sort=cna";
+			$link4 = "{$_SERVER['PHP_SELF']}?sort=ema";
 			
 			// Determine the sorting order.
 			if (isset($_GET['sort'])) { // If a non-default sort has been chosen.
@@ -125,32 +143,42 @@ if ((isset($_POST['submitted'])) || (isset($_GET['sort']))) { // If the form has
 					$order_by = 'LastName ASC';
 					$link1 = "{$_SERVER['PHP_SELF']}?sort=lnd";
 					break;
-					
+
 					case 'lnd':
 					$order_by = 'LastName DESC';
 					$link1 = "{$_SERVER['PHP_SELF']}?sort=lna";
 					break;
-					
+
 					case 'fna':
 					$order_by = 'FirstName ASC';
 					$link2 = "{$_SERVER['PHP_SELF']}?sort=fnd";
 					break;
-					
+
 					case 'fnd':
 					$order_by = 'FirstName DESC';
 					$link2 = "{$_SERVER['PHP_SELF']}?sort=fna";
 					break;
-					
+
 					case 'cna':
 					$order_by = 'CardNo ASC';
-					$link3 = "{$_SERVER['PHP_SELF']}?sort=drd";
+					$link3 = "{$_SERVER['PHP_SELF']}?sort=cnd";
 					break;
-					
+
 					case 'cnd':
 					$order_by = 'CardNo DESC';
-					$link3 = "{$_SERVER['PHP_SELF']}?sort=dra";
+					$link3 = "{$_SERVER['PHP_SELF']}?sort=cna";
 					break;
-					
+
+					case 'ema':
+					$order_by = 'email ASC';
+					$link4 = "{$_SERVER['PHP_SELF']}?sort=emd";
+					break;
+
+					case 'emd':
+					$order_by = 'email DESC';
+					$link4 = "{$_SERVER['PHP_SELF']}?sort=ema";
+					break;
+
 					default:
 					$order_by = 'CardNo DESC';
 					break;
@@ -164,17 +192,16 @@ if ((isset($_POST['submitted'])) || (isset($_GET['sort']))) { // If the form has
 				$order_by = 'CardNo DESC';
 				$sort = 'cnd';
 			}
-					
-			
+
 			// Make the query using the LIMIT function and the $start information.
-			$query = "SELECT LastName, FirstName, CardNo, custdata.memType, memtype.memDesc as Mem_Type, id FROM custdata INNER JOIN memtype ON memtype.memtype = custdata.memType WHERE $sm ORDER BY $order_by LIMIT $start, $display";
-			
+			$query = "SELECT LastName, FirstName, CardNo, custdata.memType, memtype.memDesc as Mem_Type, id, email FROM custdata INNER JOIN memtype ON memtype.memtype = custdata.memType WHERE $sm ORDER BY $order_by LIMIT $start, $display";
+
 			$result = @mysql_query ($query);
 
 			// Display the  number of matches.
 			echo '<h1 id="mainhead">Search Results</h1>
 			<p>The following <b>( ' . $num_records . ' )</b> members matched your search string:</p>';
-						
+
 			// Table header.
 			echo '<table align="center" width="90%" cellspacing="0" cellpadding="5">
 			<tr>
@@ -182,7 +209,8 @@ if ((isset($_POST['submitted'])) || (isset($_GET['sort']))) { // If the form has
 			<td align="left"><a href="' . $link1 . '&s=' . $start . '&np=' . $num_pages . '&sm=' . $sm . '"><b>Last Name</b></a></td>
 			<td align="left"><a href="' . $link2 . '&s=' . $start . '&np=' . $num_pages . '&sm=' . $sm . '"><b>First Name</b></a></td>
 			<td align="left"><a href="' . $link3 . '&s=' . $start . '&np=' . $num_pages . '&sm=' . $sm . '"><b>Member #</b></a></td>
-			<td align="left">Member Type</td>
+			<td align="left"><a href="' . $link4 . '&s=' . $start . '&np=' . $num_pages . '&sm=' . $sm . '"><b>Email</b></a></td>
+			<td align="left"><b>Member Type<b></td>
 			</tr>';
 			
 			// Fetch and print all the records.
@@ -194,6 +222,7 @@ if ((isset($_POST['submitted'])) || (isset($_GET['sort']))) { // If the form has
 				<td align="left"><b>' . $row['LastName'] . '</b></td>
 				<td align="left"><b>' . $row['FirstName'] . '</b></td>
 				<td align="left"><a href="auto_mem_modify.php?cardno=' .$row['CardNo']. '">' . $row['CardNo'] . '</a></td>
+				<td align="left">' . $row['email'] . '</td>
 				<td align="left">' . $row['Mem_Type'] . '</td>
 				</tr>';
 			}
@@ -263,9 +292,13 @@ if ((isset($_POST['submitted'])) || (isset($_GET['sort']))) { // If the form has
 	<p><input type="radio" name="search_method" value="cn" CHECKED />Member Number: <input type="text" name="card_no" size="4" maxlength="4"';
 	if (isset($_POST['card_no'])) {echo ' value="' . $_POST['card_no'] . '"';}
 	echo ' /></p>
+	<p><input type="radio" name="search_method" value="em" />Email: <input type="text" name="email" size="20" maxlength="100"';
+	if (isset($_POST['email'])) {echo ' value="' . $_POST['email'] . '"';}
+	echo ' /></p>
+	<p><input type="radio" name="search_method" value="ty" />Type: <select name="type"><option value="0">Active</option><option value="1">Inactive</option><option value="2">Suspended</option></select>';
+	echo '</p>
 	<p><input type="submit" name="submit" value="Submit" /></p>
 	<input type="hidden" name="submitted" value="TRUE" />
 	</form>';
 
 mysql_close(); // Close the DB connection.
-?>
