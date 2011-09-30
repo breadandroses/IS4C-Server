@@ -27,8 +27,10 @@ function itemParse($upc){
     if(is_numeric($upc)){
 		$upc = str_pad($upc,13,0,STR_PAD_LEFT);
         $queryItem = "SELECT * FROM products WHERE upc = '$upc'";
+        $queryHistory = "SELECT datetime, trans_type, quantity, scale, unitPrice, total, regPrice FROM dtransactions WHERE upc = '$upc' AND datetime > CURDATE() - INTERVAL 2 MONTH ORDER BY datetime DESC";
     }else{
         $queryItem = "SELECT * FROM products WHERE description LIKE '%$upc%' ORDER BY description";
+        $queryHistory = "SELECT datetime, trans_type, quantity, scale, unitPrice, total, regPrice FROM dtransactions WHERE upc LIKE '%$upc%' AND datetime > CURDATE() - INTERVAL 2 MONTH ORDER BY datetime DESC";
     }
     $resultItem = mysql_query($queryItem);
    	$num = mysql_num_rows($resultItem);
@@ -303,7 +305,30 @@ function itemParse($upc){
 				echo "name='deposit' size='5'></td>";
 				echo "<td colspan='3' align='left'>Bottle deposit</td></tr>";
                	echo "<tr><td><input type='submit' name='submit' value='submit'>&nbsp;<a href='../index.php'><font size='-1'>cancel</font></a>";
-				echo "</td><td colspan=5>&nbsp;</td></tr></table></div> "; 
+				echo "</td><td colspan=5>&nbsp;</td></tr>";
+                echo "<tr><td><h1>History (2 months)</h1>";
+                echo "<table><tr><th>Date</th><th>Type</th><th>Quantity</th><th>Unit Price</th><th>Total</th></tr>";
+                mysql_select_db("is4c_log", $DatabaseLink);
+                $resultHistory = mysql_query($queryHistory);
+                $total = 0;
+                $quantity = 0;
+                while ($row = mysql_fetch_object($resultHistory))
+                {
+                    if ($row->quantity)
+                    {
+                        $quan = $row->quantity;
+                    }
+                    else
+                    {
+                        $quan = $row->scale;
+                    }
+                    echo "<tr style='text-align: center;'><td>$row->datetime</td><td>$row->trans_type</td><td>$quan</td><td>$row->unitPrice</td><td>$row->total</td></tr>";
+                    $quantity += $row->quantity;
+                    $total += $row->total;
+                }
+                echo "<tr style='text-align: center;'><td>Totals:</td><td></td><td>$quantity</td><td></td><td>$total</td></tr>";
+                echo "</table>";
+                echo "</td></tr></table></div> "; 
 	}
     return $num;
 }
