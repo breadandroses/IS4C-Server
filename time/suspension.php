@@ -1,13 +1,15 @@
 <?php
 include_once "api/api.php";
 
-$go_live = TRUE;
+$go_live = FALSE;
 // Number of days to look at hours worked.
 $time_frame = 42;
 // Number of hours a member must have worked, at least, over the last $time_frame days.
 $auto_activate_worked_hours = 7;
 $minimum_worked_hours = 3;
 $employees = new employee_list();
+$or_date = new DateTime(date('Y-m-d'));
+$or_date->modify('-1 month');
 
 foreach ($employees->not_inactive as $employee_number)
 {
@@ -19,6 +21,7 @@ foreach ($employees->not_inactive as $employee_number)
         echo $employee->first_name . ' ' . $employee->last_name . '<br/>';
 
         // Find the last shift that is before the present date.
+        $time = 0;
         for ($i = 0; $i++; $i < 50)
         {
             $time = mktime(substr($employee->shifts[$i]['start'], 11, 2), substr($employee->shifts[$i]['start'], 14, 2), substr($employee->shifts[$i]['start'], 17, 2), substr($employee->shifts[$i]['start'], 5, 2), substr($employee->shifts[$i]['start'], 8, 2), substr($employee->shifts[$i]['start'], 0, 4));
@@ -29,9 +32,9 @@ foreach ($employees->not_inactive as $employee_number)
         }
 
         // Check that enough hours have been worked.
-        if ($employee->hoursWorked($time_frame) >= $auto_activate_worked_hours)
+        if ($employee->hoursWorked($time_frame) >= $auto_activate_worked_hours or $employee->orientation_date > $or_date)
         {
-            echo 'Has worked at least ' . $auto_activate_worked_hours . ' hours.<br/>';
+            echo 'Has worked at least ' . $auto_activate_worked_hours . ' hours or orientation was after ' . $or_date->format('m d Y') . '.<br/>';
             $suspend = FALSE;
         }
         else

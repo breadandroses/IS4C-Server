@@ -230,12 +230,16 @@ function get_employee_information($emp_id)
 {
     $emp_id = mysql_real_escape_string($emp_id);
     $sql_query = '
-        SELECT FirstName,
-	        LastName,
-	        jobTitle,
-	        EmpActive,
-	        email
+        SELECT employees.FirstName,
+	        employees.LastName,
+	        employees.jobTitle,
+	        employees.EmpActive,
+	        employees.email,
+            custdata.memType,
+            UNIX_TIMESTAMP(custdata.orientationDate) orientationDate
 	        FROM is4c_op.employees
+                LEFT JOIN is4c_op.custdata
+                    ON emp_no = CardNo
 	        WHERE emp_no = ' . $emp_id . ';';
 
     $employee_results = mysql_query($sql_query);
@@ -247,6 +251,8 @@ function get_employee_information($emp_id)
         $employee_information['last_name'] = $row['LastName'];
         $employee_information['email'] = $row['email'];
         $employee_information['active'] = $row['EmpActive'];
+        $employee_information['type'] = $row['memType'];
+        $employee_information['orientation_date'] = new DateTime(date('Y-m-d', $row['orientationDate']));
     }
 
     return $employee_information;

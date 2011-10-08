@@ -1,6 +1,7 @@
 <?php
 
 include_once "sql.php";
+include_once "swift/swift_required.php";
 
 class shifts
 {
@@ -40,6 +41,8 @@ class employee
     public $last_name;
     public $email;
     public $active;
+    public $type;
+    public $orientation_date;
 
     function __construct($emp_id)
     {
@@ -49,6 +52,8 @@ class employee
         $this->last_name = $member_information['last_name'];
         $this->email = $member_information['email'];
         $this->active = $member_information['active'];
+        $this->type = $member_information['type'];
+        $this->orientation_date = $member_information['orientation_date'];
         $this->shifts = get_employee_shifts($this->id);
     }
 
@@ -70,6 +75,23 @@ class employee
     public function inactivate()
     {
         add_inactivate($this->id);
+    }
+
+    public function email($subject, $message)
+    {
+        $mail = Swift_Message::newInstance()
+            ->setSubject($subject)
+            ->setFrom(array('breadandrosesfoodcoop@gmail.com' => 'Bread and Roses'))
+            ->setTo($this->email)
+            ->setBody($message);
+
+        $transport = Swift_SmtpTransport::newInstance('smtp.gmail.com', 465, "ssl")
+            ->setUsername('breadandrosesfoodcoop@gmail.com')
+            ->setPassword('tallahassee');
+
+        $mailer = Swift_Mailer::newInstance($transport);
+
+        $mailer->send($mail);
     }
 
 }
