@@ -1,7 +1,7 @@
 <?php
 include_once "api/api.php";
 
-$go_live = FALSE;
+$go_live = TRUE;
 // Number of days to look at hours worked.
 $time_frame = 42;
 // Number of hours a member must have worked, at least, over the last $time_frame days.
@@ -72,9 +72,9 @@ foreach ($employees->not_inactive as $employee_number)
         if ($employee->type == 0)
         {
             echo 'Will now be suspended.<br/>';
-            $employee->suspend();
             if ($go_live)
             {
+                $employee->suspend();
                 $employee->email('Suspension notice', 'This is a notice that your membership with Bread and Roses has been suspended.  Oh No!  Why did that happen‽  This is usually due to a lack of volunteer hours or a missed shift.  Please contact Bread & Roses and talk with a key holder to schedule a shift and become an active member again.  Without our dedicated volunteers Bread & Roses would not exist.  We look forward to seeing you reactivated soon.  Our phone number is 850 425-8486.');
             }
         }
@@ -89,9 +89,9 @@ foreach ($employees->not_inactive as $employee_number)
         if ($employee->type == 1)
         {
             echo 'Will now be activated<br/>';
-            $employee->activate();
             if ($go_live)
             {
+		$employee->activate();
                 $employee->email('Activation notice', 'This is a notice that your membership with Bread and Roses has been activated effective immediately.  Thank you for continuing to support your local member-owned food cooperative.');
             }
         }

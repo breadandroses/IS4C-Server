@@ -265,16 +265,13 @@ function get_hours_worked($emp_id, $days)
     $days = mysql_real_escape_string($days);
     $count = 0;
     $sql_query = '
-        SELECT emp_no,
-          FirstName,
-          LastName,
-          SUM(UNIX_TIMESTAMP(shifts.end) - UNIX_TIMESTAMP(shifts.start)) / 3600 "hours_worked"
+        SELECT SUM(UNIX_TIMESTAMP(shifts.end) - UNIX_TIMESTAMP(shifts.start)) / 3600 "hours_worked"
           FROM is4c_op.employees
-            LEFT JOIN time.employee_shifts
+            JOIN time.employee_shifts
               USING (emp_no)
-            LEFT JOIN time.shifts
+            JOIN time.shifts
               USING (shift_id)
-            LEFT JOIN time.volunteer_hours
+            JOIN time.volunteer_hours
               USING (shift_id, emp_no)
           WHERE shifts.start > NOW() - INTERVAL ' . $days . ' DAY
             AND emp_no = ' . $emp_id . '

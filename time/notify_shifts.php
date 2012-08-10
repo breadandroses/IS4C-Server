@@ -40,7 +40,7 @@ $sql_query = "
 
             $transport = Swift_SmtpTransport::newInstance('smtp.gmail.com', 465, "ssl")
                 ->setUsername('breadandrosesfoodcoop@gmail.com')
-                ->setPassword('');
+                ->setPassword('tallahassee');
 
             $mailer = Swift_Mailer::newInstance($transport);
 
