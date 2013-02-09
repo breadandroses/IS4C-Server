@@ -69,7 +69,7 @@ if (count($shift_loop) > 0)
 ?>
     <tr>
         <td><?=++$shift_number?></td>
-        <td><input id="start_time" type="time" placeholder="12:00 am" size="6"/> - <input id="end_time" type="time" placeholder="11:59 pm" size="6"/></td>
+        <td><input id="start_time" type="time" size="6"/> - <input id="end_time" type="time" size="6"/></td>
         <td></td>
         <td><input type="submit" value="+" onclick="add_shift($('#start_time').val(), $('#end_time').val(), <?=$_GET['date']?>); show_shifts(<?=$_GET['date']?>); return false;" /></td>
     </tr>
